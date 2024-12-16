@@ -2,84 +2,77 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { LeadCaptureModal } from "./lead-capture-modal";
-<Image src="/flowo-logo.png" alt="Flowo" width={120} height={30} />;
-import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navItems = [
+    { name: "Como Funciona", href: "#como-funciona" },
+    { name: "Recursos", href: "#recursos" },
+    { name: "Preços", href: "#precos" },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-bold text-xl">
-            <Image src="/logo.png" alt="Flowo" width={120} height={30} />
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="flex items-center">
+            <Image src="/logo.png" alt="Flowo" width={120} height={40} />
           </Link>
 
-          <div className="hidden md:flex space-x-4">
-            <Link href="/" className="text-gray-600 hover:text-gray-900">
-              Como Funciona
-            </Link>
-            <Link
-              href="/recursos"
-              className="text-gray-600 hover:text-gray-900"
-            >
-              Recursos
-            </Link>
-            <Link href="/precos" className="text-gray-600 hover:text-gray-900">
-              Preços
-            </Link>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-gray-600 hover:text-primary transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Button size="sm">Comece Agora</Button>
           </div>
 
-          <LeadCaptureModal>
-            <Button className="hidden md:inline-flex bg-primary text-white hover:bg-primary/90">
-              Comece Agora
-            </Button>
-          </LeadCaptureModal>
-
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
-      </div>
 
-      {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link
-              href="/"
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="block py-2 text-gray-600 hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Button
+              className="w-full mt-4"
+              onClick={() => setIsMenuOpen(false)}
             >
-              Como Funciona
-            </Link>
-            <Link
-              href="/recursos"
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-            >
-              Recursos
-            </Link>
-            <Link
-              href="/precos"
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-            >
-              Preços
-            </Link>
+              Comece Agora
+            </Button>
           </div>
-          <div className="pt-4 pb-3 border-t border-gray-200">
-            <LeadCaptureModal>
-              <Button className="ml-3 bg-primary text-white hover:bg-primary/90">
-                Comece Agora
-              </Button>
-            </LeadCaptureModal>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 }

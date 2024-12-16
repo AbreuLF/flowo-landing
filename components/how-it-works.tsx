@@ -51,7 +51,7 @@ export default function HowItWorks() {
             </motion.span>
 
             <motion.h2
-              className="text-4xl font-bold mb-6"
+              className="text-3xl md:text-4xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -60,7 +60,7 @@ export default function HowItWorks() {
             </motion.h2>
 
             <motion.p
-              className="text-xl text-gray-600 mb-12"
+              className="text-lg md:text-xl text-gray-600 mb-8 md:mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -69,7 +69,7 @@ export default function HowItWorks() {
               agendamento de forma simples e eficiente.
             </motion.p>
 
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {steps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -83,7 +83,9 @@ export default function HowItWorks() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">{step.title}</h3>
-                    <p className="text-gray-600">{step.description}</p>
+                    <p className="text-sm md:text-base text-gray-600">
+                      {step.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -91,54 +93,58 @@ export default function HowItWorks() {
           </div>
 
           <motion.div
-            className="relative"
+            className="relative mt-8 lg:mt-0"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative bg-gradient-to-br from-cyan-400 to-purple-400 rounded-2xl p-8">
+            <div className="relative bg-gradient-to-br from-cyan-400 to-purple-400 rounded-2xl p-4 md:p-8">
               <Image
                 src="/how-it-works-demo.png"
                 alt="Como o Flowo funciona"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-2xl"
+                className="rounded-lg shadow-2xl w-full h-auto"
               />
 
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl">
-                <p className="font-bold text-2xl text-primary">4 Etapas</p>
-                <p className="text-sm text-gray-600">
+              <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-white p-2 md:p-4 rounded-lg shadow-xl">
+                <p className="font-bold text-xl md:text-2xl text-primary">
+                  4 Etapas
+                </p>
+                <p className="text-xs md:text-sm text-gray-600">
                   Para transformar seu negócio
                 </p>
               </div>
 
-              <div className="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-xl">
-                <p className="font-bold text-2xl text-green-500">100%</p>
-                <p className="text-sm text-gray-600">Automatizado</p>
+              <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-white p-2 md:p-4 rounded-lg shadow-xl">
+                <p className="font-bold text-xl md:text-2xl text-green-500">
+                  100%
+                </p>
+                <p className="text-xs md:text-sm text-gray-600">Automatizado</p>
               </div>
             </div>
           </motion.div>
         </div>
 
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-12 md:mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
-          <h3 className="text-2xl font-bold mb-4">
+          <h3 className="text-xl md:text-2xl font-bold mb-4">
             Pronto para revolucionar seu agendamento?
           </h3>
           <LeadCaptureModal>
             <Button
               size="lg"
-              className="bg-primary text-white hover:bg-primary/90"
+              className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90"
             >
               Comece seu teste gratuito de 14 dias
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </LeadCaptureModal>
-          <p className="mt-4 text-gray-600">
+          <p className="mt-4 text-sm md:text-base text-gray-600">
             Não é necessário cartão de crédito. Cancele a qualquer momento.
           </p>
         </motion.div>

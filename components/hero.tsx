@@ -29,7 +29,7 @@ const features = [
 
 export default function Hero() {
   return (
-    <Section background="gradient" className="pt-32 pb-20">
+    <Section background="gradient" className="pt-24 md:pt-32 pb-16 md:pb-20">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-8"
@@ -37,7 +37,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm">
             Mais de <span className="font-bold">50.000+</span> agendamentos
             realizados 🎉
           </span>
@@ -46,7 +46,7 @@ export default function Hero() {
         <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -62,7 +62,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-xl text-gray-600 mb-8 max-w-xl"
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -82,21 +82,21 @@ export default function Hero() {
               <LeadCaptureModal>
                 <Button
                   size="lg"
-                  className="bg-primary text-white hover:bg-primary/90"
+                  className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90"
                 >
                   Comece Agora <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </LeadCaptureModal>
               <Button
                 variant="outline"
-                className="inline-flex items-center justify-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center"
               >
                 <PlayCircle className="mr-2 h-5 w-5" />
                 Ver Demo de 2 minutos
               </Button>
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -118,7 +118,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 mt-12 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -130,15 +130,21 @@ export default function Hero() {
                 alt="Demonstração do Flowo"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-2xl"
+                className="rounded-lg shadow-2xl w-full h-auto"
               />
-              <div className="absolute -bottom-10 -left-10 bg-white p-4 rounded-lg shadow-lg">
-                <p className="font-bold text-2xl text-primary">1.523</p>
-                <p className="text-sm text-gray-600">Novos agendamentos hoje</p>
+              <div className="absolute -bottom-4 sm:-bottom-10 -left-4 sm:-left-10 bg-white p-2 sm:p-4 rounded-lg shadow-lg text-center sm:text-left">
+                <p className="font-bold text-xl sm:text-2xl text-primary">
+                  1.523
+                </p>
+                <p className="text-xs sm:text-sm text-gray-600">
+                  Novos agendamentos hoje
+                </p>
               </div>
-              <div className="absolute -top-10 -right-10 bg-white p-4 rounded-lg shadow-lg">
-                <p className="font-bold text-2xl text-green-500">R$ 157.890</p>
-                <p className="text-sm text-gray-600">
+              <div className="absolute -top-4 sm:-top-10 -right-4 sm:-right-10 bg-white p-2 sm:p-4 rounded-lg shadow-lg text-center sm:text-left">
+                <p className="font-bold text-xl sm:text-2xl text-green-500">
+                  R$ 157.890
+                </p>
+                <p className="text-xs sm:text-sm text-gray-600">
                   Faturamento extra este mês
                 </p>
               </div>

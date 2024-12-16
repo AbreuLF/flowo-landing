@@ -37,22 +37,22 @@ export default function Testimonials() {
   return (
     <Section background="light">
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-8 md:mb-16"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-4xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
           O Que Nossos Clientes Dizem{" "}
           <span className="inline-block text-yellow-400">💛</span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
           Descubra como o Flowo está transformando negócios e impulsionando o
           sucesso de nossos clientes.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 md:px-0">
         {reviews.map((review, index) => (
           <motion.div
             key={index}
@@ -61,17 +61,17 @@ export default function Testimonials() {
             transition={{ duration: 0.5, delay: 0.1 * index }}
           >
             <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
+              <CardContent className="p-4 md:p-6">
                 <div className="flex mb-4">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-5 h-5 text-yellow-400 fill-current"
+                      className="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-current"
                     />
                   ))}
                 </div>
 
-                <p className="text-gray-700 mb-6 italic">
+                <p className="text-sm md:text-base text-gray-700 mb-4 md:mb-6 italic">
                   &quot;{review.text}&quot;
                 </p>
 
@@ -81,16 +81,20 @@ export default function Testimonials() {
                     alt={review.author}
                     width={48}
                     height={48}
-                    className="rounded-full mr-4"
+                    className="rounded-full mr-3 md:mr-4 w-10 h-10 md:w-12 md:h-12"
                   />
                   <div>
-                    <h4 className="font-semibold">{review.author}</h4>
-                    <p className="text-sm text-gray-600">{review.role}</p>
+                    <h4 className="font-semibold text-sm md:text-base">
+                      {review.author}
+                    </h4>
+                    <p className="text-xs md:text-sm text-gray-600">
+                      {review.role}
+                    </p>
                   </div>
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-gray-200">
-                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
+                  <span className="inline-block px-2 py-1 md:px-3 md:py-1 bg-primary/10 text-primary text-xs md:text-sm rounded-full">
                     {review.industry}
                   </span>
                 </div>
