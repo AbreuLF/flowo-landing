@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Flowo - Impulsione seu Negócio em até 40% com IA de Agendamento"
+        title="Flowo - Impulsione seu Negócio em até 40% com IA de Agendamento e um super CRM"
         description="Otimize seu tempo, reduza faltas em 60% e aumente seu faturamento com agendamento inteligente integrado ao WhatsApp."
       />
       <Navbar />
