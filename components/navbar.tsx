@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { LeadCaptureModal } from "./lead-capture-modal";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +35,9 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Button size="sm">Comece Agora</Button>
+            <LeadCaptureModal>
+              <Button size="sm">Comece Agora</Button>
+            </LeadCaptureModal>
           </div>
 
           {/* Mobile Menu Button */}
@@ -64,12 +67,11 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Button
-              className="w-full mt-4"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Comece Agora
-            </Button>
+            <LeadCaptureModal>
+              <Button className="ml-3 bg-primary text-white hover:bg-primary/90">
+                Comece Agora
+              </Button>
+            </LeadCaptureModal>
           </div>
         )}
       </div>
