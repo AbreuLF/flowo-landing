@@ -118,38 +118,41 @@ export default function Hero() {
               ))}
             </div>
           </div>
-          <div className="lg:w-1/2 mt-12 lg:mt-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="relative"
-            >
+
+          <motion.div
+            className="relative mt-8 lg:mt-0 shrink grow basis-auto w-full lg:w-[unset]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="relative bg-gradient-to-br from-cyan-400 to-purple-400 rounded-2xl p-4 md:p-8">
               <Image
-                src="/flowo-demo.gif"
-                alt="Demonstração do Flowo"
+                src="/how-it-works-demo.png"
+                alt="Como o Flowo funciona"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl w-full h-auto"
               />
-              <div className="absolute -bottom-4 sm:-bottom-10 -left-4 sm:-left-10 bg-white p-2 sm:p-4 rounded-lg shadow-lg text-center sm:text-left">
-                <p className="font-bold text-xl sm:text-2xl text-primary">
+
+              <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-white p-2 md:p-4 rounded-lg shadow-xl">
+                <p className="font-bold text-xl md:text-2xl text-primary">
                   1.523
                 </p>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  Novos agendamentos hoje
+                <p className="text-xs md:text-sm text-gray-600">
+                  Novos agendamentos
                 </p>
               </div>
-              <div className="absolute -top-4 sm:-top-10 -right-4 sm:-right-10 bg-white p-2 sm:p-4 rounded-lg shadow-lg text-center sm:text-left">
-                <p className="font-bold text-xl sm:text-2xl text-green-500">
+
+              <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-white p-2 md:p-4 rounded-lg shadow-xl">
+                <p className="font-bold text-xl md:text-2xl text-green-500">
                   R$ 157.890
                 </p>
-                <p className="text-xs sm:text-sm text-gray-600">
+                <p className="text-xs md:text-sm text-gray-600">
                   Faturamento extra este mês
                 </p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </Section>
