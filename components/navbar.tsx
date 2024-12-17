@@ -10,9 +10,9 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Como Funciona", href: "#como-funciona" },
-    { name: "Recursos", href: "#recursos" },
-    { name: "Preços", href: "#precos" },
+    { name: "Como Funciona", href: "como-funciona" },
+    { name: "Recursos", href: "recursos" },
+    { name: "Preços", href: "precos" },
   ];
 
   return (
