@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <Image src="/logo.png" alt="Flowo" width={120} height={40} />
+            <Image src="/flowo-logo.svg" alt="Flowo" width={120} height={30} />
           </Link>
 
           {/* Desktop Navigation */}

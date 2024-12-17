@@ -21,10 +21,10 @@ export default function Footer() {
           {/* Coluna 1 - Sobre */}
           <div>
             <Image
-              src="/logo.png"
+              src="/flowo-logo.svg"
               alt="Logo Flowo"
               width={120}
-              height={40}
+              height={30}
               className="mb-6"
             />
             <p className="text-gray-400 mb-6">
