@@ -43,7 +43,7 @@ export function FeaturedGuide() {
                 <Clock className="w-4 h-4 mr-2" />
                 Tempo de leitura: 15 minutos
               </div>
-              <Button className="w-full bg-primary text-white hover:bg-primary/90">
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 Ler o guia <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>

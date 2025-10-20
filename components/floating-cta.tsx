@@ -24,7 +24,7 @@ export default function FloatingCTA() {
     <div className="fixed bottom-4 right-4 z-50">
       <Button
         size="lg"
-        className="bg-primary text-white hover:bg-primary/90 shadow-lg"
+        className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg"
       >
         Comece agora
         <ArrowRight className="ml-2 h-5 w-5" />

@@ -36,7 +36,7 @@ const guides = [
   {
     title: "Integrando o Flowo com WhatsApp",
     description:
-      "Guia passo a passo para configurar e utilizar a integrguia-definitivo-agendamentoação com WhatsApp.",
+      "Guia passo a passo para configurar e utilizar a integração com WhatsApp.",
     readTime: "8 min",
     category: "Integrações",
     icon: MessageCircle,

@@ -1,6 +1,5 @@
 import { Calendar, Bell, Shield, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { Section } from './section'
 
 const features = [
@@ -86,15 +85,24 @@ export default function SmartBooking() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative bg-gradient-to-br from-cyan-400 to-purple-400 rounded-2xl p-8">
-              <Image
-                src="/smart-booking-demo.png"
-                alt="Interface do Flowo mostrando agendamento inteligente"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-2xl"
-              />
-              
+            <div className="relative gradient-bg-medium rounded-2xl p-8 min-h-[400px] flex items-center justify-center">
+              <div className="grid grid-cols-2 gap-4 w-full">
+                {[
+                  { icon: Calendar, label: "Agenda" },
+                  { icon: Bell, label: "Lembretes" },
+                  { icon: Zap, label: "Rápido" },
+                  { icon: Shield, label: "Seguro" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center"
+                  >
+                    <item.icon className="w-8 h-8 text-white mx-auto mb-2" />
+                    <p className="text-white/90 text-sm">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl">
                 <p className="font-bold text-2xl text-primary">80%</p>
                 <p className="text-sm text-gray-600">Tempo economizado</p>

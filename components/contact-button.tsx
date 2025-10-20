@@ -11,7 +11,7 @@ export default function ContactButton() {
         <div className="bg-white rounded-lg shadow-xl p-4 mb-4 w-72">
           <h3 className="font-bold mb-2">Fale Conosco</h3>
           <p className="text-sm mb-4">Tem alguma dúvida? Nossa equipe está pronta para ajudar!</p>
-          <Button className="w-full bg-primary text-white hover:bg-primary/90">
+          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
             Iniciar Chat
           </Button>
         </div>

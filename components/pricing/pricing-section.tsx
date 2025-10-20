@@ -53,22 +53,22 @@ export function PricingSection({
         {showCTA && (
           <div className="text-center bg-white/80 backdrop-blur-sm max-w-2xl mx-auto p-8 rounded-2xl shadow-sm border">
             <h3 className="text-2xl font-bold mb-4">
-              Pronto para Transformar seu Negócio?
+              Pronto para Reduzir Faltas em 60%?
             </h3>
             <p className="text-gray-600 mb-6">
-              Junte-se a milhares de empresas que já otimizaram seu agendamento
+              Junte-se a 570+ barbearias que já otimizaram seu agendamento
               com o Flowo
             </p>
             <LeadCaptureModal>
               <Button
                 size="lg"
-                className="bg-primary text-white hover:bg-primary/90"
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                Comece seu teste gratuito agora
+                Teste Grátis - Sem Cartão
               </Button>
             </LeadCaptureModal>
             <p className="mt-4 text-sm text-gray-500">
-              Não é necessário cartão de crédito • Cancele a qualquer momento
+              14 dias grátis • Sem compromisso • Cancele quando quiser
             </p>
           </div>
         )}

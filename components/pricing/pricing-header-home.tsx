@@ -15,7 +15,7 @@ export function PricingHeaderHome() {
       </p>
       {/*
       <LeadCaptureModal>
-        <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+        <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
           Comece seu teste gratuito
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>

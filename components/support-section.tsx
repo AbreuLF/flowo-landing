@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { LeadCaptureModal } from "./lead-capture-modal";
 import { Section } from "./section";
 import { motion } from "framer-motion";
+import { HeadphonesIcon } from "lucide-react";
 
 export default function SupportSection() {
   return (
@@ -28,13 +28,9 @@ export default function SupportSection() {
               máximo aproveitamento e sucesso da sua operação.
             </p>
             <div className="flex items-center gap-6">
-              <Image
-                src="/support-team.jpg"
-                alt="Equipe de Suporte Flowo"
-                width={48}
-                height={48}
-                className="rounded-full"
-              />
+              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                <HeadphonesIcon className="w-6 h-6 text-white" />
+              </div>
               <div>
                 <p className="font-semibold">
                   Nossa equipe está pronta para ajudar

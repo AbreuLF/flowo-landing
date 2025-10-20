@@ -32,7 +32,7 @@ export function GuidesHero() {
         >
           <Button
             size="lg"
-            className="bg-primary text-white hover:bg-primary/90"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
             <BookOpen className="mr-2 h-5 w-5" /> Explorar Guias
           </Button>

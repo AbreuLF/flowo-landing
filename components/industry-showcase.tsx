@@ -1,121 +1,98 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Section } from "./section";
+import { User, Users, Building2 } from "lucide-react";
 
-const industries = [
+const useCases = [
   {
-    name: "Saúde",
-    description:
-      "Reduza faltas em até 70% e aumente a satisfação dos pacientes com agendamento inteligente.",
-    metrics: {
-      revenue: "+45%",
-      efficiency: "15h",
-      satisfaction: "98%",
-    },
-    image: "/industries/healthcare.jpg",
-    link: "/casos-de-sucesso/clinica-saude-total",
+    icon: User,
+    title: "Barbeiro Solo",
+    subtitle: "1 cadeira • 8-12 clientes/dia",
+    challenge: "Passava o dia respondendo WhatsApp em vez de cortar cabelo",
+    result: "Hoje o Flowo responde sozinho, economiza 3h por dia e fatura 45% mais",
+    metric: "+45%",
   },
   {
-    name: "Beleza",
-    description:
-      "Otimize sua agenda e aumente seu faturamento com recomendações personalizadas de serviços.",
-    metrics: {
-      revenue: "+40%",
-      efficiency: "12h",
-      satisfaction: "96%",
-    },
-    image: "/industries/beauty.jpg",
-    link: "/casos-de-sucesso/estudio-beleza-radiante",
+    icon: Users,
+    title: "Barbearia Média",
+    subtitle: "3-5 barbeiros • 25-40 clientes/dia",
+    challenge: "Fila desorganizada, clientes esperando sem previsão",
+    result: "Espera caiu de 45min pra 8min, avaliação foi de 3.8 pra 4.8 estrelas",
+    metric: "+63%",
   },
   {
-    name: "Fitness",
-    description:
-      "Maximize a ocupação das aulas e aumente a retenção de alunos com lembretes inteligentes.",
-    metrics: {
-      revenue: "+35%",
-      efficiency: "10h",
-      satisfaction: "95%",
-    },
-    image: "/industries/fitness.jpg",
-    link: "/casos-de-sucesso/academia-corpo-em-forma",
+    icon: Building2,
+    title: "Franquia",
+    subtitle: "Múltiplas unidades • Alto ticket",
+    challenge: "Cada unidade com sistema diferente, sem controle",
+    result: "Padronizou tudo, vê dashboard geral, ticket médio subiu R$ 27",
+    metric: "+127%",
   },
 ];
 
 export default function IndustryShowcase() {
   return (
     <Section background="gradient-reverse">
-      <motion.div
-        className="text-center mb-16"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-4xl font-bold mb-4">Soluções para Seu Segmento</h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Descubra como o Flowo se adapta às necessidades específicas do seu
-          negócio e impulsiona resultados reais.
-        </p>
-      </motion.div>
+      <div className="container mx-auto px-4">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-4xl font-bold mb-4">Funciona pra Todo Tamanho</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            De barbeiro solo até franquia, cada um tem seus desafios
+          </p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {industries.map((industry, index) => (
-          <motion.div
-            key={index}
-            className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 * index }}
-          >
-            <div className="relative h-64">
-              <Image
-                src={industry.image}
-                alt={industry.name}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
-                <p className="text-white/90 mb-4">{industry.description}</p>
-              </div>
-            </div>
-
-            <div className="p-6 bg-white">
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">
-                    {industry.metrics.revenue}
-                  </p>
-                  <p className="text-sm text-gray-600">Faturamento</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {useCases.map((useCase, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+            >
+              {/* Icon & Header */}
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <useCase.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">
-                    {industry.metrics.efficiency}
-                  </p>
-                  <p className="text-sm text-gray-600">Horas/semana</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">
-                    {industry.metrics.satisfaction}
-                  </p>
-                  <p className="text-sm text-gray-600">Satisfação</p>
-                </div>
+                <h3 className="text-2xl font-bold mb-1">{useCase.title}</h3>
+                <p className="text-sm text-gray-500">{useCase.subtitle}</p>
               </div>
 
-              <Link
-                href={industry.link}
-                className="inline-flex items-center text-primary hover:text-primary/80 font-semibold"
-              >
-                Ver caso de sucesso
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </motion.div>
-        ))}
+              {/* Challenge */}
+              <div className="mb-6">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  <span className="text-red-500 font-semibold">Antes: </span>
+                  {useCase.challenge}
+                </p>
+              </div>
+
+              {/* Result */}
+              <div className="mb-6">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  <span className="text-green-600 font-semibold">Depois: </span>
+                  {useCase.result}
+                </p>
+              </div>
+
+              {/* Metric Badge */}
+              <div className="pt-6 border-t border-gray-200">
+                <div className="inline-flex items-center gap-2">
+                  <span className="text-3xl font-bold gradient-text">
+                    {useCase.metric}
+                  </span>
+                  <span className="text-sm text-gray-600">faturamento</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </Section>
   );

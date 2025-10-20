@@ -1,8 +1,7 @@
 "use client";
 
-import { Calendar, Bell, Shield, Zap } from "lucide-react";
+import { MessageSquare, Clock, Bell, Scissors } from "lucide-react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Section } from "./section";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,34 +9,34 @@ import { LeadCaptureModal } from "./lead-capture-modal";
 
 const steps = [
   {
-    icon: Calendar,
-    title: "Integração Simples",
+    icon: MessageSquare,
+    title: "Cliente Agenda pelo WhatsApp",
     description:
-      "Conecte o Flowo ao seu calendário existente em minutos. Compatível com Google Calendar, Outlook e iCal.",
+      "Seu cliente manda mensagem no WhatsApp da barbearia. A IA entende e oferece horários disponíveis automaticamente.",
   },
   {
-    icon: Zap,
-    title: "IA Analisa Seus Dados",
+    icon: Scissors,
+    title: "Escolhe o Serviço",
     description:
-      "Nossa IA avançada aprende seus padrões de agendamento, preferências de clientes e histórico de compromissos.",
+      "Sistema mostra os serviços (corte, barba, degradê) com preços e duração. Cliente escolhe o que quer fazer.",
   },
   {
-    icon: Shield,
-    title: "Otimização Automática",
+    icon: Clock,
+    title: "Marca o Horário",
     description:
-      "Sua agenda é continuamente otimizada para máxima eficiência, reduzindo tempos ociosos.",
+      "IA mostra horários livres na agenda dos seus barbeiros. Cliente escolhe melhor horário e pronto, agendado!",
   },
   {
     icon: Bell,
-    title: "Lembretes Inteligentes",
+    title: "Lembrete Automático",
     description:
-      "Envio automático de lembretes personalizados via WhatsApp, reduzindo drasticamente as faltas.",
+      "Sistema envia lembrete no WhatsApp 1 dia antes e 1 hora antes. Cliente não esquece e você não perde dinheiro.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <Section background="light">
+    <Section background="light" id="como-funciona">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -56,7 +55,7 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Transforme seu Negócio em 4 Etapas
+              Simples e Rápido: 4 Passos
             </motion.h2>
 
             <motion.p
@@ -65,8 +64,8 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Descubra como nossa tecnologia de IA revoluciona seu processo de
-              agendamento de forma simples e eficiente.
+              Veja como funciona o agendamento automático pelo WhatsApp.
+              Seu cliente agenda, você só precisa aparecer pra cortar!
             </motion.p>
 
             <div className="space-y-6 md:space-y-8">
@@ -98,14 +97,23 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative bg-gradient-to-br from-cyan-400 to-purple-400 rounded-2xl p-4 md:p-8">
-              <Image
-                src="/how-it-works-demo.png"
-                alt="Como o Flowo funciona"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-2xl w-full h-auto"
-              />
+            <div className="relative gradient-bg-medium rounded-2xl p-4 md:p-8 min-h-[400px] flex items-center justify-center">
+              <div className="grid grid-cols-2 gap-4 w-full">
+                {[
+                  { icon: MessageSquare, label: "WhatsApp" },
+                  { icon: Scissors, label: "Serviço" },
+                  { icon: Clock, label: "Horário" },
+                  { icon: Bell, label: "Lembrete" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center"
+                  >
+                    <item.icon className="w-8 h-8 text-white mx-auto mb-2" />
+                    <p className="text-white/90 text-sm">{item.label}</p>
+                  </div>
+                ))}
+              </div>
 
               <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-white p-2 md:p-4 rounded-lg shadow-xl">
                 <p className="font-bold text-xl md:text-2xl text-primary">
@@ -133,19 +141,19 @@ export default function HowItWorks() {
           transition={{ duration: 0.5, delay: 1 }}
         >
           <h3 className="text-xl md:text-2xl font-bold mb-4">
-            Pronto para revolucionar seu agendamento?
+            Quer parar de perder clientes que não aparecem?
           </h3>
           <LeadCaptureModal>
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Comece seu teste gratuito de 14 dias
+              Teste Grátis - Sem Cartão
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </LeadCaptureModal>
           <p className="mt-4 text-sm md:text-base text-gray-600">
-            Não é necessário cartão de crédito. Cancele a qualquer momento.
+            ✓ 14 dias grátis • Sem compromisso • Cancele quando quiser
           </p>
         </motion.div>
       </div>

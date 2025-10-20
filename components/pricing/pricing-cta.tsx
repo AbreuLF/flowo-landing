@@ -11,7 +11,7 @@ export function PricingCTA() {
       className="text-center mt-16"
     >
       <LeadCaptureModal>
-        <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+        <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
           Comece seu teste gratuito agora
         </Button>
       </LeadCaptureModal>

@@ -18,7 +18,7 @@ export function FeaturedResource() {
             <p className="text-lg text-gray-600 mb-6">
               Aprenda as melhores práticas para otimizar sua agenda, reduzir faltas e aumentar sua produtividade em até 40%.
             </p>
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
               Ler o guia <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </motion.div>

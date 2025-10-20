@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Como Funciona", href: "/" },
+    { name: "Como Funciona", href: "/#como-funciona" },
     { name: "Recursos", href: "/recursos" },
     { name: "Preços", href: "/precos" },
   ];
@@ -25,19 +25,29 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden md:flex items-center justify-between flex-1 ml-12">
+            <div className="flex items-center space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center space-x-6">
               <Link
-                key={item.name}
-                href={item.href}
+                href="/entrar"
                 className="text-gray-600 hover:text-primary transition-colors"
               >
-                {item.name}
+                Entrar
               </Link>
-            ))}
-            <LeadCaptureModal>
-              <Button size="sm">Comece Agora</Button>
-            </LeadCaptureModal>
+              <LeadCaptureModal>
+                <Button size="sm">Teste Grátis</Button>
+              </LeadCaptureModal>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -67,9 +77,16 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
+            <Link
+              href="/entrar"
+              className="block py-2 text-gray-600 hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Entrar
+            </Link>
             <LeadCaptureModal>
-              <Button className="ml-3 bg-primary text-white hover:bg-primary/90">
-                Comece Agora
+              <Button className="mt-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                Teste Grátis
               </Button>
             </LeadCaptureModal>
           </div>

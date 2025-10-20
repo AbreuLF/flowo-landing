@@ -86,17 +86,17 @@ export function PricingCard({
         <Button
           className={`w-full mb-4 ${
             isPopular
-              ? "bg-primary text-white hover:bg-primary/90"
+              ? "bg-primary text-primary-foreground hover:bg-primary/90"
               : "bg-white text-primary border-2 border-primary hover:bg-primary/10"
           }`}
         >
-          {price === "Personalizado" ? "Fale conosco" : "Comece grátis"}
+          {price === "Personalizado" ? "Fale com Especialista" : "Teste Grátis"}
         </Button>
       </LeadCaptureModal>
       <p className="text-xs text-center text-gray-500">
         {price === "Personalizado"
-          ? "Soluções personalizadas para sua empresa"
-          : "Teste grátis por 14 dias, sem cartão de crédito"}
+          ? "Soluções personalizadas para franquias"
+          : "✓ 14 dias grátis • Sem cartão • Cancele quando quiser"}
       </p>
     </div>
   );

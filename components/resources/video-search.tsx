@@ -27,7 +27,7 @@ export function VideoSearch() {
           />
           <Button
             type="submit"
-            className="bg-primary text-white hover:bg-primary/90"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
             <Search className="w-4 h-4 mr-2" />
             Buscar

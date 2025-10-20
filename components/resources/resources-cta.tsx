@@ -8,13 +8,13 @@ export function ResourcesCTA() {
     <Section background="gradient-reverse" className="text-center">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Pronto para Revolucionar seu Agendamento?
+          Pronto para Otimizar sua Barbearia?
         </h2>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Junte-se a milhares de profissionais que já estão economizando tempo e aumentando a produtividade com o Flowo.
+          Junte-se a 570+ barbearias que já reduziram faltas em 60% e aumentaram o faturamento com o Flowo.
         </p>
         <LeadCaptureModal>
-          <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
             Comece seu teste gratuito <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </LeadCaptureModal>
