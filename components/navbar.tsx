@@ -38,12 +38,12 @@ export default function Navbar() {
               ))}
             </div>
             <div className="flex items-center space-x-6">
-              <a
+              <Link
                 href="https://barber.flowo.com.br"
                 className="text-gray-600 hover:text-primary transition-colors"
               >
                 Entrar
-              </a>
+              </Link>
               <LeadCaptureModal>
                 <Button size="sm">Teste Grátis</Button>
               </LeadCaptureModal>
@@ -77,13 +77,13 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <a
+            <Link
               href="https://barber.flowo.com.br"
               className="block py-2 text-gray-600 hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Entrar
-            </a>
+            </Link>
             <LeadCaptureModal>
               <Button className="mt-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 Teste Grátis
