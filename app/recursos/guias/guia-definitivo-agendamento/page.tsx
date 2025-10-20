@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const guideContent = {
   title: 'Guia Definitivo de Agendamento',
   author: 'Equipe Flowo',
-  publishDate: '15 de Junho, 2023',
+  publishDate: '15 de Janeiro, 2025',
   readTime: '10 min',
   sections: [
     {
@@ -84,8 +84,8 @@ export default function SchedulingGuidePage() {
                 </Link>
               </Button>
               <Button asChild>
-                <Link href="/recursos/guias/integracao-whatsapp">
-                  Próximo Guia: Integração com WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href="/recursos/guias/gerenciamento-equipe">
+                  Próximo Guia: Gerenciamento de Equipe <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const guideContent = {
   title: 'Gerenciamento de Equipe Eficiente',
   author: 'Equipe Flowo',
-  publishDate: '22 de Junho, 2023',
+  publishDate: '20 de Janeiro, 2025',
   readTime: '15 min',
   sections: [
     {
@@ -99,8 +99,8 @@ export default function TeamManagementGuidePage() {
                 </Link>
               </Button>
               <Button asChild>
-                <Link href="/recursos/guias/analise-dados-relatorios">
-                  Próximo Guia: Análise de Dados e Relatórios <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href="/recursos/guias/guia-definitivo-agendamento">
+                  Próximo Guia: Guia Definitivo de Agendamento <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
