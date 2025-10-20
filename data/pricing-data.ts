@@ -2,48 +2,48 @@ import { Shield, Zap, Users, Star, MessageCircle } from 'lucide-react'
 
 export const pricingPlans = [
   {
-    name: "Empreendedor",
-    description: "Ideal para profissionais autônomos.",
+    name: "Solo",
+    description: "Ideal para barbeiro autônomo ou pequena barbearia.",
     monthlyPrice: 97,
     yearlyPrice: 77,
     features: [
-      "Até 100 agendamentos/mês",
-      "Integração básica com WhatsApp",
+      "Até 150 cortes/mês",
+      "Agendamento pelo WhatsApp",
       "Lembretes automáticos",
-      "Página de agendamento personalizada",
-      "Sincronização com Google Calendar",
+      "Cadastro de serviços (corte, barba, etc)",
+      "Histórico de clientes",
       "Suporte por email"
     ]
   },
   {
-    name: "Profissional",
-    description: "Perfeito para negócios em crescimento.",
+    name: "Barbearia",
+    description: "Perfeito para barbearias com 2-5 barbeiros.",
     monthlyPrice: 197,
     yearlyPrice: 157,
     isPopular: true,
     features: [
-      "Agendamentos ilimitados",
-      "Integração avançada com WhatsApp",
-      "Lembretes e confirmações personalizadas",
-      "Análise de produtividade",
-      "Múltiplos profissionais (até 5)",
-      "Personalização de marca avançada",
-      "Integração com Google e Outlook",
-      "Suporte prioritário por chat"
+      "Cortes ilimitados",
+      "WhatsApp com IA avançada",
+      "Agenda para até 5 barbeiros",
+      "Gestão de fila em tempo real",
+      "Relatórios de faturamento",
+      "Cadastro de produtos e combos",
+      "Integração com Google Calendar",
+      "Suporte prioritário"
     ]
   },
   {
-    name: "Empresarial",
-    description: "Soluções personalizadas para grandes equipes.",
+    name: "Franquia",
+    description: "Para redes e franquias com múltiplas unidades.",
     price: "Personalizado",
     features: [
-      "Tudo do plano Profissional",
-      "Número ilimitado de profissionais",
-      "Integrações personalizadas",
-      "Relatórios avançados e dashboards",
-      "Treinamento dedicado",
-      "Gerente de conta exclusivo",
-      "SLA garantido",
+      "Tudo do plano Barbearia",
+      "Barbeiros ilimitados",
+      "Múltiplas unidades/filiais",
+      "Dashboard executivo",
+      "Relatórios customizados",
+      "Treinamento da equipe",
+      "Gerente de conta dedicado",
       "Suporte 24/7"
     ]
   }
@@ -99,10 +99,10 @@ export const trustSignals = [
     title: "Garantia de 30 dias",
     description: "Devolução total se não estiver satisfeito"
   },
-  {
-    icon: "Award",
-    title: "Premiado",
-    description: "Melhor software de agendamento 2023"
-  }
+  // {
+  //   icon: "Award",
+  //   title: "Premiado",
+  //   description: "Melhor software de agendamento 2024"
+  // }
 ]
 

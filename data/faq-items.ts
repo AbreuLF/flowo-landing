@@ -2,54 +2,55 @@ import { FAQItem } from "@/types/faq"
 
 export const faqItems: FAQItem[] = [
   {
-    question: "Como o Flowo utiliza Inteligência Artificial para otimizar agendamentos?",
-    answer: "O Flowo utiliza algoritmos avançados de IA para analisar padrões de agendamento, preferências de clientes e histórico de compromissos. Isso permite que o sistema faça previsões precisas e sugestões inteligentes para otimizar sua agenda, reduzir tempos ociosos e maximizar a eficiência do seu negócio.",
-    category: "Tecnologia"
+    question: "Como funciona o agendamento pelo WhatsApp?",
+    answer: "Seu cliente manda uma mensagem no WhatsApp da barbearia pedindo pra marcar horário. A IA do Flowo responde automaticamente mostrando os horários disponíveis dos seus barbeiros, serviços e preços. Cliente escolhe e pronto - está agendado. Funciona 24/7, mesmo você dormindo.",
+    category: "WhatsApp"
   },
   {
-    question: "A integração com WhatsApp é segura e compatível com as regulamentações de privacidade?",
-    answer: "Sim, a integração do Flowo com o WhatsApp é totalmente segura e em conformidade com as regulamentações de privacidade, incluindo LGPD e GDPR. Utilizamos criptografia de ponta a ponta e seguimos as melhores práticas de segurança para proteger os dados dos seus clientes.",
-    category: "Segurança"
+    question: "Quanto tempo leva para configurar o Flowo na minha barbearia?",
+    answer: "Em média 30 minutos. Você cadastra seus barbeiros, serviços (corte, barba, degradê, etc) e horários de funcionamento. Conecta o WhatsApp e pronto. Nossa equipe te ajuda no onboarding para garantir que tudo funcione perfeitamente.",
+    category: "Configuração"
   },
   {
-    question: "Quanto tempo leva para implementar o Flowo em meu negócio?",
-    answer: "O tempo de implementação do Flowo varia dependendo do tamanho e complexidade do seu negócio, mas geralmente leva de 1 a 2 semanas. Nossa equipe de suporte trabalha em estreita colaboração com você para garantir uma transição suave e eficiente.",
-    category: "Implementação"
+    question: "Serve para barbeiro solo ou só para barbearias grandes?",
+    answer: "Serve para os dois! Temos barbeiros autônomos usando o Flowo, assim como redes com 10+ unidades. O sistema se adapta: se você trabalha sozinho, a agenda é simples. Se tem vários barbeiros, o sistema distribui os clientes automaticamente entre eles.",
+    category: "Planos"
   },
   {
-    question: "O Flowo é adequado para pequenas empresas e profissionais autônomos?",
-    answer: "Absolutamente! O Flowo foi projetado para ser escalável e atender às necessidades de negócios de todos os tamanhos, desde profissionais autônomos até grandes empresas. Oferecemos planos flexíveis que se adaptam ao seu crescimento.",
-    category: "Negócios"
+    question: "Como os lembretes reduzem as faltas?",
+    answer: "O sistema manda lembrete automático 1 dia antes e 1 hora antes do horário marcado, direto no WhatsApp do cliente. As mensagens são personalizadas com o nome do cliente, horário e serviço. Com isso, suas faltas caem de 40-50% para menos de 20%.",
+    category: "Lembretes"
   },
   {
-    question: "Como o Flowo ajuda a reduzir as faltas de clientes?",
-    answer: "O Flowo utiliza um sistema inteligente de lembretes via WhatsApp, que envia mensagens personalizadas nos momentos mais eficazes antes do compromisso. Além disso, nossa IA analisa padrões de comportamento para identificar clientes com maior probabilidade de faltar, permitindo ações preventivas.",
-    category: "Funcionalidades"
+    question: "Preciso trocar meu número de WhatsApp?",
+    answer: "Não! O Flowo funciona com o número de WhatsApp que você já usa na barbearia. Seus clientes continuam mandando mensagem no mesmo número de sempre. A diferença é que agora a IA responde automaticamente.",
+    category: "WhatsApp"
   },
   {
-    question: "O Flowo oferece integrações com outros sistemas de gestão?",
-    answer: "Sim, o Flowo oferece integrações com uma ampla gama de sistemas de gestão populares, incluindo CRMs, sistemas de contabilidade e plataformas de marketing. Também temos uma API robusta que permite integrações personalizadas para atender às necessidades específicas do seu negócio.",
-    category: "Integrações"
+    question: "Consigo gerenciar vários barbeiros na mesma agenda?",
+    answer: "Sim! Você cadastra cada barbeiro com seus horários e especialidades. Quando o cliente agenda, o sistema mostra os horários de quem está disponível. Você também pode definir preferências - tipo o João só fazer barba, ou a Maria só atender das 14h em diante.",
+    category: "Equipe"
   },
   {
-    question: "Como o Flowo lida com múltiplos profissionais ou locais de atendimento?",
-    answer: "O Flowo possui recursos avançados de gestão de equipe que permitem gerenciar facilmente múltiplos profissionais e locais de atendimento. Você pode definir disponibilidades individuais, regras de agendamento específicas e visualizar agendas consolidadas ou separadas conforme necessário.",
-    category: "Funcionalidades"
+    question: "O sistema guarda histórico dos clientes?",
+    answer: "Sim. Cada vez que um cliente vem, o sistema registra: que serviço fez, quanto tempo levou, se chegou no horário, etc. Na próxima vez que ele agendar, você já sabe do histórico dele e pode sugerir combos ou serviços complementares.",
+    category: "Clientes"
   },
   {
-    question: "Que tipo de suporte o Flowo oferece aos clientes?",
-    answer: "Oferecemos suporte abrangente, incluindo onboarding personalizado, treinamento para sua equipe, suporte técnico 24/7 via chat e e-mail, e uma extensa base de conhecimento com tutoriais e guias. Além disso, clientes em planos premium têm acesso a um gerente de conta dedicado.",
+    question: "Tem período de teste?",
+    answer: "Sim! 14 dias grátis, sem precisar cadastrar cartão. Durante o teste você tem acesso completo ao sistema: agendamento pelo WhatsApp, lembretes automáticos, gestão de equipe, tudo. Se não gostar, é só não contratar - simples assim.",
+    category: "Teste"
+  },
+  // TODO: Descomentar quando funcionalidade de campanhas estiver pronta
+  // {
+  //   question: "Como funcionam as campanhas automáticas?",
+  //   answer: "Você cria uma campanha uma única vez (tipo 'Promoção de verão: R$ 10 off no degradê') e o sistema manda automaticamente pra sua base de clientes via WhatsApp. Pode mandar pra todos, ou só pra quem não vem há 30 dias, ou só pra quem nunca fez barba. Você escolhe.",
+  //   category: "Campanhas"
+  // },
+  {
+    question: "E se eu precisar de ajuda? Tem suporte?",
+    answer: "Tem suporte 24/7 via chat e email. Resposta em até 5 minutos. Além disso, você tem acesso a uma base de conhecimento com vídeos e guias passo a passo. No plano Barbearia e Franquia, você tem suporte prioritário e um gerente de conta dedicado.",
     category: "Suporte"
-  },
-  {
-    question: "O Flowo oferece relatórios e análises de desempenho do negócio?",
-    answer: "Sim, o Flowo fornece relatórios detalhados e dashboards interativos que oferecem insights valiosos sobre o desempenho do seu negócio. Você pode acompanhar métricas-chave como taxa de ocupação, receita por serviço, satisfação do cliente e muito mais, tudo em tempo real.",
-    category: "Funcionalidades"
-  },
-  {
-    question: "Como o Flowo garante a disponibilidade e confiabilidade do sistema?",
-    answer: "O Flowo é hospedado em infraestrutura de nuvem de alta disponibilidade, com redundância e backups regulares para garantir máxima confiabilidade. Mantemos um uptime de 99,9% e realizamos atualizações e manutenções de forma transparente para minimizar qualquer interrupção no seu negócio.",
-    category: "Tecnologia"
   }
 ]
 
