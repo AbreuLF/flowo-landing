@@ -40,8 +40,6 @@ export default function Navbar() {
             <div className="flex items-center space-x-6">
               <a
                 href="https://barber.flowo.com.br"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-gray-600 hover:text-primary transition-colors"
               >
                 Entrar
@@ -81,8 +79,6 @@ export default function Navbar() {
             ))}
             <a
               href="https://barber.flowo.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
               className="block py-2 text-gray-600 hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
