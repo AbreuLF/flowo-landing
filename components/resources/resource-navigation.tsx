@@ -1,14 +1,15 @@
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import { Book, Video, FileText, Users, Code, BarChart } from 'lucide-react'
+import { Book, Video } from 'lucide-react'
 
 const resourceTypes = [
-  { name: 'Guias', icon: Book, href: '/recursos/guias', description: 'Aprenda as melhores práticas e estratégias' },
+  { name: 'Guias', icon: Book, href: '/recursos/guias', description: 'Aprenda as melhores práticas para sua barbearia' },
   { name: 'Vídeos', icon: Video, href: '/recursos/videos', description: 'Tutoriais e demonstrações em vídeo' },
-  { name: 'Templates', icon: FileText, href: '/recursos/templates', description: 'Modelos prontos para usar' },
-  { name: 'Comunidade', icon: Users, href: '/recursos/comunidade', description: 'Conecte-se e aprenda com outros usuários' },
-  { name: 'API', icon: Code, href: '/recursos/api', description: 'Documentação e recursos para desenvolvedores' },
-  { name: 'Relatórios', icon: BarChart, href: '/recursos/relatorios', description: 'Análises e insights de negócios' },
+  // TODO: Implement these resources in the future
+  // { name: 'Templates', icon: FileText, href: '/recursos/templates', description: 'Modelos prontos para usar' },
+  // { name: 'Comunidade', icon: Users, href: '/recursos/comunidade', description: 'Conecte-se e aprenda com outros barbeiros' },
+  // { name: 'API', icon: Code, href: '/recursos/api', description: 'Documentação e recursos para desenvolvedores' },
+  // { name: 'Relatórios', icon: BarChart, href: '/recursos/relatorios', description: 'Análises e insights de negócios' },
 ]
 
 export function ResourceNavigation() {

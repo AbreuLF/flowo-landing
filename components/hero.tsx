@@ -1,29 +1,27 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle, Check } from "lucide-react";
 import { motion } from "framer-motion";
-import CountUp from "react-countup";
 import { LeadCaptureModal } from "./lead-capture-modal";
 import { Section } from "./section";
 
 const features = [
   {
-    title: "Agendamento Inteligente",
-    description: "IA que otimiza sua agenda automaticamente",
+    title: "Agenda Otimizada com IA",
+    description: "Organize cortes e barbas sem sobreposição",
   },
   {
-    title: "Lembretes via WhatsApp",
-    description: "Reduz faltas em até 60%",
+    title: "Lembretes Automáticos",
+    description: "Clientes recebem confirmação no WhatsApp",
   },
   {
-    title: "Sincronização em Tempo Real",
-    description: "Integração com Google Calendar e Outlook",
+    title: "Gestão de Fila",
+    description: "Acompanhe quem está esperando em tempo real",
   },
   {
-    title: "Proteção Contra Spam",
-    description: "Garante apenas reservas legítimas",
+    title: "Histórico do Cliente",
+    description: "Lembre-se do último corte de cada cliente",
   },
 ];
 
@@ -38,8 +36,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm">
-            Mais de <span className="font-bold">50.000+</span> agendamentos
-            realizados 🎉
+            Feito para <span className="font-bold">Barbearias</span>
           </span>
         </motion.div>
 
@@ -51,14 +48,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Impulsione seu
+              Sua Barbearia
               <br />
-              Negócio em até
-              <br />
-              <span className="gradient-text">
-                <CountUp end={40} duration={2} />%
-              </span>{" "}
-              com IA
+              no <span className="gradient-text">Automático</span>
             </motion.h1>
 
             <motion.p
@@ -67,14 +59,12 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              O Flowo utiliza Inteligência Artificial para otimizar sua agenda,
-              reduzir faltas em até 60% e aumentar sua eficiência. Transforme
-              seu negócio com agendamento inteligente e veja resultados reais em
-              semanas.
+              Agendamento via WhatsApp com IA, lembretes automáticos e gestão completa
+              da sua equipe. Mais tempo cortando, menos tempo gerenciando.
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 mb-8"
+              className="flex flex-col sm:flex-row gap-4 mb-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -82,9 +72,9 @@ export default function Hero() {
               <LeadCaptureModal>
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90"
+                  className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90"
                 >
-                  Comece Agora <ArrowRight className="ml-2 h-5 w-5" />
+                  Teste Grátis - Sem Cartão <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </LeadCaptureModal>
               <Button
@@ -96,7 +86,37 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+            <motion.p
+              className="text-sm text-gray-500 mb-6 flex items-center justify-center sm:justify-start gap-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <Check className="w-4 h-4 text-green-500" />
+              Sem compromisso • Cancele quando quiser
+            </motion.p>
+
+            <motion.div
+              className="grid grid-cols-3 gap-4 mb-8 max-w-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <div className="gradient-bg-light p-4 rounded-xl border border-blue-200/50">
+                <p className="text-2xl font-bold gradient-text">573+</p>
+                <p className="text-xs text-gray-600">Barbearias</p>
+              </div>
+              <div className="gradient-bg-light p-4 rounded-xl border border-blue-200/50">
+                <p className="text-2xl font-bold gradient-text">60%</p>
+                <p className="text-xs text-gray-600">Menos faltas</p>
+              </div>
+              <div className="gradient-bg-light p-4 rounded-xl border border-blue-200/50">
+                <p className="text-2xl font-bold gradient-text">4.8★</p>
+                <p className="text-xs text-gray-600">Avaliação</p>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -125,30 +145,34 @@ export default function Hero() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative bg-gradient-to-br from-cyan-400 to-purple-400 rounded-2xl p-4 md:p-8">
-              <Image
-                src="/how-it-works-demo.png"
-                alt="Como o Flowo funciona"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-2xl w-full h-auto"
-              />
+            <div className="relative gradient-bg-medium rounded-2xl p-4 md:p-8 min-h-[400px] flex items-center justify-center">
+              <div className="w-full bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center">
+                <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Check className="w-10 h-10 text-white" />
+                </div>
+                <p className="text-white font-semibold text-lg mb-2">
+                  Sistema em Ação
+                </p>
+                <p className="text-white/80 text-sm">
+                  Agendamento automático via WhatsApp
+                </p>
+              </div>
 
               <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-white p-2 md:p-4 rounded-lg shadow-xl">
                 <p className="font-bold text-xl md:text-2xl text-primary">
-                  1.523
+                  320
                 </p>
                 <p className="text-xs md:text-sm text-gray-600">
-                  Novos agendamentos
+                  Cortes este mês
                 </p>
               </div>
 
               <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-white p-2 md:p-4 rounded-lg shadow-xl">
                 <p className="font-bold text-xl md:text-2xl text-green-500">
-                  R$ 157.890
+                  R$ 15.200
                 </p>
                 <p className="text-xs md:text-sm text-gray-600">
-                  Faturamento extra este mês
+                  Faturamento este mês
                 </p>
               </div>
             </div>
