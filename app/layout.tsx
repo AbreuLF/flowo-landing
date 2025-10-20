@@ -1,20 +1,22 @@
 import type { Metadata } from "next"
-import { Inter, Outfit } from 'next/font/google'
+import { Poppins, Lora } from 'next/font/google'
 import "./globals.css"
 
-const inter = Inter({ 
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
 })
 
-const outfit = Outfit({
+const lora = Lora({
   subsets: ["latin"],
-  variable: '--font-outfit',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-lora',
 })
 
 export const metadata: Metadata = {
-  title: "Flowo - Agendamento Inteligente com IA",
-  description: "Simplifique seu agendamento com ferramentas alimentadas por IA",
+  title: "Sistema de Agendamento para Barbearia | WhatsApp + IA - Flowo",
+  description: "Software de agendamento via WhatsApp para barbearias. Reduza faltas em 60%, gerencie barbeiros e aumente faturamento. Teste grátis 14 dias sem cartão.",
 }
 
 export default function RootLayout({
@@ -23,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="pt-BR" className={`${poppins.variable} ${lora.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   )

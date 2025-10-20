@@ -1,9 +1,10 @@
 import SEO from "@/components/seo";
+import SchemaMarkup from "@/components/schema-markup";
+import UrgencyBanner from "@/components/urgency-banner";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import HowItWorks from "@/components/how-it-works";
 import Features from "@/components/features";
-import IndustryShowcase from "@/components/industry-showcase";
 import Testimonials from "@/components/testimonials";
 import HomePricingSection from "@/components/home-pricing-section";
 import FAQ from "@/components/faq";
@@ -17,9 +18,11 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Flowo - Impulsione seu Negócio em até 40% com IA de Agendamento e um super CRM"
-        description="Otimize seu tempo, reduza faltas em 60% e aumente seu faturamento com agendamento inteligente integrado ao WhatsApp."
+        title="Sistema de Agendamento para Barbearia | WhatsApp + IA - Flowo"
+        description="Software de agendamento via WhatsApp para barbearias. Reduza faltas em 60%, gerencie barbeiros e aumente faturamento. Teste grátis 14 dias sem cartão. Usado por 573+ barbearias."
       />
+      <SchemaMarkup />
+      <UrgencyBanner />
       <Navbar />
       <main>
         <Hero />
@@ -29,7 +32,6 @@ export default function Home() {
         <Section id="recursos" background="white">
           <Features />
         </Section>
-        <IndustryShowcase />
         <Section background="gradient">
           <Testimonials />
         </Section>
