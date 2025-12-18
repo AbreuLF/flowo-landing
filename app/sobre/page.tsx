@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sobre o Flowo - Agendamento Inteligente para Barbearias",
+  title: "Sobre o Flowo: Sistema de Agendamento para Barbearia com IA",
   description:
     "Conheça o Flowo: a plataforma brasileira de agendamento via WhatsApp com IA para barbearias e negócios de serviços.",
 };

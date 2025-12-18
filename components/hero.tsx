@@ -48,9 +48,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Agenda Cheia,
+              Agendamento para Barbearia
               <br />
-              <span className="gradient-text">Sem Estresse</span>
+              <span className="gradient-text">via WhatsApp com IA</span>
             </motion.h1>
 
             <motion.p

@@ -19,9 +19,9 @@ import Link from "next/link";
 import { LeadCaptureModal } from "@/components/lead-capture-modal";
 
 export const metadata: Metadata = {
-  title: "Recursos - Flowo",
+  title: "Guias e Recursos Gratuitos para Barbearias",
   description:
-    "Guias práticos e materiais gratuitos para reduzir faltas, automatizar agendamentos e fazer sua barbearia crescer.",
+    "Baixe planilhas, guias e materiais gratuitos para reduzir faltas, organizar agenda e aumentar faturamento da sua barbearia.",
 };
 
 const guides = [

@@ -18,9 +18,9 @@ import {
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Casos de Sucesso - Flowo",
+  title: "Casos de Sucesso: Barbearias que Reduziram 70% das Faltas",
   description:
-    "Veja como barbearias e negócios de serviços estão crescendo com o Flowo. Histórias reais de redução de faltas e aumento de faturamento.",
+    "Veja resultados reais: barbearias que reduziram faltas em até 70% e aumentaram faturamento com agendamento via WhatsApp. Histórias de sucesso.",
 };
 
 const successStories = [

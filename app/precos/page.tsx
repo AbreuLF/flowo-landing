@@ -12,8 +12,8 @@ import CallToAction from "@/components/call-to-action"
 import { featuredResources } from '@/data/pricing-data'
 
 export const metadata: Metadata = {
-  title: 'Preços - Flowo',
-  description: 'Escolha o plano ideal para o seu negócio. Sem taxas ocultas, sem cartão de crédito necessário.',
+  title: 'Preços e Planos de Sistema de Agendamento para Barbearia',
+  description: 'Planos a partir de R$ 97/mês. Agendamento via WhatsApp com IA, lembretes automáticos e redução de faltas. 14 dias grátis sem cartão.',
 }
 
 export default function PricingPage() {
