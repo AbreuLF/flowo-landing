@@ -190,7 +190,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
                   Cadastro Realizado com Sucesso!
                 </DialogTitle>
                 <DialogDescription className="text-base">
-                  Obrigado por se inscrever, {name.split(' ')[0]}! Em breve nossa equipe entrará em contato pelo WhatsApp para configurar seu período de teste gratuito.
+                  Obrigado por se inscrever, {name.split(' ')[0]}! Em breve nossa equipe entrará em contato pelo WhatsApp para configurar seu período de teste.
                 </DialogDescription>
               </DialogHeader>
               <div className="mt-6 space-y-3">
@@ -243,7 +243,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
                 <DialogTitle>Comece sua jornada com o Flowo</DialogTitle>
                 <DialogDescription>
                   Preencha o formulário abaixo para iniciar seu período de teste
-                  gratuito de 14 dias.
+                  de 14 dias.
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -314,7 +314,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
                   </div>
                 </div>
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? "Enviando..." : "Iniciar Teste Gratuito"}
+                  {isSubmitting ? "Enviando..." : "Iniciar Período de Teste"}
                 </Button>
               </form>
             </>

@@ -20,7 +20,7 @@ export default function SchemaMarkup() {
       "bestRating": "5",
       "worstRating": "1"
     },
-    "description": "Sistema de agendamento para barbearias via WhatsApp com IA. Reduza faltas em 60%, gerencie barbeiros e aumente o faturamento da sua barbearia.",
+    "description": "Sistema de agendamento para barbearias via WhatsApp com IA. Reduza faltas, gerencie barbeiros e aumente o faturamento da sua barbearia.",
     "screenshot": "https://flowo.com.br/how-it-works-demo.png",
     "featureList": [
       "Agendamento pelo WhatsApp",
@@ -88,7 +88,7 @@ export default function SchemaMarkup() {
         "name": "Como o Flowo reduz faltas de clientes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "O sistema envia lembretes automáticos via WhatsApp 1 dia antes e 1 hora antes do horário marcado. Isso reduz esquecimentos e aumenta a taxa de comparecimento em até 60%, economizando cerca de R$ 2.100/mês em horários perdidos."
+          "text": "O sistema envia lembretes automáticos via WhatsApp 24h antes e 2h antes do horário marcado. Isso reduz esquecimentos e aumenta significativamente a taxa de comparecimento."
         }
       },
       {
