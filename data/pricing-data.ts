@@ -1,50 +1,53 @@
-import { Shield, Zap, Users, Star, MessageCircle } from 'lucide-react'
+import { Shield, Zap, Users, Star, MessageCircle, CreditCard, Calendar } from 'lucide-react'
 
 export const pricingPlans = [
   {
     name: "Solo",
-    description: "Ideal para barbeiro autônomo ou pequena barbearia.",
+    description: "Para profissionais autônomos que querem automatizar o agendamento.",
     monthlyPrice: 97,
-    yearlyPrice: 77,
+    yearlyPrice: 85, // 12% off
     features: [
-      "Até 150 cortes/mês",
-      "Agendamento pelo WhatsApp",
-      "Lembretes automáticos",
-      "Cadastro de serviços (corte, barba, etc)",
+      "1 profissional",
+      "200 agendamentos/mês",
+      "WhatsApp com IA básica 24/7",
+      "Lembretes 24h e 2h antes",
+      "PIX antecipado (opcional)",
       "Histórico de clientes",
-      "Suporte por email"
+      "Confirmação automática",
+      "Suporte por e-mail (24h)"
     ]
   },
   {
-    name: "Barbearia",
-    description: "Perfeito para barbearias com 2-5 barbeiros.",
+    name: "Equipe",
+    description: "Para negócios com equipe de até 5 profissionais.",
     monthlyPrice: 197,
-    yearlyPrice: 157,
+    yearlyPrice: 173, // 12% off
     isPopular: true,
     features: [
-      "Cortes ilimitados",
+      "Até 5 profissionais",
+      "Agendamentos ilimitados",
       "WhatsApp com IA avançada",
-      "Agenda para até 5 barbeiros",
-      "Gestão de fila em tempo real",
-      "Relatórios de faturamento",
-      "Cadastro de produtos e combos",
-      "Integração com Google Calendar",
-      "Suporte prioritário"
+      "Lembretes personalizáveis",
+      "Sync Google, Apple e Outlook",
+      "Remarcação pelo WhatsApp",
+      "Relatórios completos",
+      "Suporte WhatsApp (4h)"
     ]
   },
   {
-    name: "Franquia",
-    description: "Para redes e franquias com múltiplas unidades.",
-    price: "Personalizado",
+    name: "Empresarial",
+    description: "Para empresas maiores e redes com múltiplas unidades.",
+    isCustomPricing: true,
+    customPriceLabel: "Sob Consulta",
     features: [
-      "Tudo do plano Barbearia",
-      "Barbeiros ilimitados",
+      "Profissionais ilimitados",
       "Múltiplas unidades/filiais",
+      "WhatsApp com IA premium",
+      "API completa + Webhooks",
       "Dashboard executivo",
-      "Relatórios customizados",
-      "Treinamento da equipe",
+      "Taxa PIX negociável",
       "Gerente de conta dedicado",
-      "Suporte 24/7"
+      "Suporte prioritário (1h)"
     ]
   }
 ]
@@ -53,37 +56,55 @@ export const featuredResources = [
   {
     icon: Star,
     title: "IA Avançada",
-    description: "Otimização automática de agenda com machine learning para maximizar sua produtividade",
+    description: "Atendimento inteligente 24/7 que entende linguagem natural e agenda automaticamente",
     benefits: [
-      "Redução de 60% nas faltas",
-      "Sugestões inteligentes de horários"
+      "Redução significativa nas faltas",
+      "Resposta em segundos, não minutos"
+    ]
+  },
+  {
+    icon: CreditCard,
+    title: "PIX Antecipado (Opcional)",
+    description: "Ative cobrança antecipada via PIX para reduzir faltas drasticamente",
+    benefits: [
+      "Reduza faltas significativamente",
+      "Configure por serviço ou para todos"
+    ]
+  },
+  {
+    icon: Calendar,
+    title: "Sync de Calendários",
+    description: "Integração automática com Google Calendar, Apple Calendar e Microsoft Outlook",
+    benefits: [
+      "Agendamentos no seu celular",
+      "Evita conflitos de horário"
+    ]
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp Nativo",
+    description: "Usa seu próprio número de WhatsApp, sem mudar nada para seus clientes",
+    benefits: [
+      "Lembretes automáticos personalizados",
+      "Confirmação e remarcação pelo chat"
     ]
   },
   {
     icon: Shield,
     title: "Segurança Total",
-    description: "Proteção completa dos seus dados e dos seus clientes com criptografia avançada",
+    description: "Proteção completa dos seus dados e dos seus clientes com criptografia",
     benefits: [
       "Conformidade com LGPD",
       "Backup automático em nuvem"
     ]
   },
   {
-    icon: MessageCircle,
-    title: "WhatsApp Integrado",
-    description: "Comunicação automática e personalizada com seus clientes via WhatsApp",
-    benefits: [
-      "Lembretes automáticos",
-      "Confirmações instantâneas"
-    ]
-  },
-  {
     icon: Users,
-    title: "Suporte Premium",
-    description: "Equipe especializada disponível 24/7 para garantir seu sucesso",
+    title: "Suporte Humanizado",
+    description: "Equipe brasileira disponível para garantir seu sucesso com o Flowo",
     benefits: [
-      "Atendimento prioritário",
-      "Treinamento completo"
+      "Atendimento em português",
+      "Treinamento completo incluso"
     ]
   }
 ]
@@ -96,13 +117,12 @@ export const trustSignals = [
   },
   {
     icon: "ThumbsUp",
-    title: "Garantia de 30 dias",
-    description: "Devolução total se não estiver satisfeito"
+    title: "Garantia de 14 dias",
+    description: "Teste grátis sem cartão de crédito"
   },
-  // {
-  //   icon: "Award",
-  //   title: "Premiado",
-  //   description: "Melhor software de agendamento 2024"
-  // }
+  {
+    icon: "CreditCard",
+    title: "Pagamento Seguro",
+    description: "PIX e cartão com proteção total"
+  }
 ]
-

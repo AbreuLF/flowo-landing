@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { LeadCaptureModal } from "../lead-capture-modal";
-import { Check, Flame } from "lucide-react";
+import { Check } from "lucide-react";
 
 interface PricingCardProps {
   name: string;
@@ -9,6 +9,8 @@ interface PricingCardProps {
   monthlyPrice?: number;
   yearlyPrice?: number;
   price?: string;
+  isCustomPricing?: boolean;
+  customPriceLabel?: string;
   features: string[];
   isPopular?: boolean;
   isYearly: boolean;
@@ -20,84 +22,95 @@ export function PricingCard({
   monthlyPrice,
   yearlyPrice,
   price,
+  isCustomPricing,
+  customPriceLabel,
   features,
   isPopular,
   isYearly,
 }: PricingCardProps) {
-  const displayPrice = price || (isYearly ? yearlyPrice : monthlyPrice);
+  const displayPrice = isCustomPricing ? customPriceLabel : (price || (isYearly ? yearlyPrice : monthlyPrice));
 
   return (
     <div
-      className={`relative rounded-2xl p-6 sm:p-8 bg-white border-2 ${
+      className={`relative h-full flex flex-col rounded-2xl p-6 sm:p-8 bg-white transition-all duration-300 ${
         isPopular
-          ? "border-primary shadow-lg md:-mt-8 md:mb-8"
-          : "border-gray-200 hover:border-primary transition-colors duration-300"
+          ? "border-2 border-primary shadow-lg"
+          : "border border-gray-200 hover:border-gray-300 hover:shadow-md"
       }`}
     >
       {isPopular && (
-        <div className="absolute -top-5 left-0 right-0 flex justify-center">
-          <Badge className="bg-primary text-white px-3 py-1 text-xs sm:text-sm rounded-full flex items-center gap-2">
-            <Flame className="w-3 h-3 sm:w-4 sm:h-4" /> Mais popular
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <Badge className="bg-primary text-primary-foreground px-3 py-1 text-xs rounded-full">
+            Mais popular
           </Badge>
         </div>
       )}
+
+      {/* Header */}
       <div className="mb-6">
-        <h3 className="font-display text-xl sm:text-2xl font-bold mb-2">
+        <h3 className="font-display text-xl sm:text-2xl font-bold text-gray-900 mb-2">
           {name}
         </h3>
-        <p className="text-sm sm:text-base text-gray-600">{description}</p>
+        <p className="text-sm text-gray-600">{description}</p>
       </div>
+
+      {/* Price */}
       <div className="mb-6">
         {typeof displayPrice === "number" ? (
           <div>
-            <p className="flex items-start">
-              <span className="text-2xl sm:text-3xl font-bold">R$</span>
-              <span className="text-4xl sm:text-6xl font-bold tracking-tight">
+            <p className="flex items-baseline">
+              <span className="text-lg font-semibold text-gray-900">R$</span>
+              <span className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mx-1">
                 {displayPrice}
               </span>
-              <span className="text-gray-500 ml-2 self-end mb-2">/mês</span>
+              <span className="text-gray-500">/mês</span>
             </p>
             {isYearly && (
-              <p className="text-green-600 font-semibold flex items-center gap-2 text-sm sm:text-base">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                Economize 20% com o plano anual
+              <p className="text-sm text-gray-600 mt-1">
+                Economize 12% com o plano anual
               </p>
             )}
           </div>
         ) : (
-          <p className="text-xl sm:text-2xl font-bold">{displayPrice}</p>
+          <p className="text-2xl font-bold text-gray-900">{displayPrice}</p>
         )}
-        <p className="text-xs sm:text-sm text-gray-600 mt-2">
-          {isYearly ? "Faturado anualmente" : "Faturado mensalmente"}
-        </p>
+        {!isCustomPricing && (
+          <p className="text-xs text-gray-500 mt-2">
+            {isYearly ? "Faturado anualmente" : "Faturado mensalmente"}
+          </p>
+        )}
       </div>
-      <ul className="mb-8 space-y-3 sm:space-y-4">
+
+      {/* Features */}
+      <ul className="mb-8 space-y-3 flex-grow">
         {features.map((feature, index) => (
-          <li
-            key={index}
-            className="flex items-start gap-2 text-sm sm:text-base"
-          >
-            <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
-            <span>{feature}</span>
+          <li key={index} className="flex items-start gap-3 text-sm">
+            <Check className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />
+            <span className="text-gray-700">{feature}</span>
           </li>
         ))}
       </ul>
-      <LeadCaptureModal>
-        <Button
-          className={`w-full mb-4 ${
-            isPopular
-              ? "bg-primary text-primary-foreground hover:bg-primary/90"
-              : "bg-white text-primary border-2 border-primary hover:bg-primary/10"
-          }`}
-        >
-          {price === "Personalizado" ? "Fale com Especialista" : "Teste Grátis"}
-        </Button>
-      </LeadCaptureModal>
-      <p className="text-xs text-center text-gray-500">
-        {price === "Personalizado"
-          ? "Soluções personalizadas para franquias"
-          : "✓ 14 dias grátis • Sem cartão • Cancele quando quiser"}
-      </p>
+
+      {/* CTA */}
+      <div className="mt-auto">
+        <LeadCaptureModal>
+          <Button
+            size="lg"
+            className={`w-full h-11 font-medium ${
+              isPopular
+                ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                : "bg-white text-gray-900 border border-gray-300 hover:bg-gray-50"
+            }`}
+          >
+            {isCustomPricing ? "Fale com Especialista" : "Começar Período de Teste"}
+          </Button>
+        </LeadCaptureModal>
+        <p className="text-xs text-center text-gray-500 mt-3">
+          {isCustomPricing
+            ? "Soluções personalizadas para redes e franquias"
+            : "Sem cartão de crédito • Cancele quando quiser"}
+        </p>
+      </div>
     </div>
   );
 }

@@ -42,7 +42,7 @@ export function PricingToggle({ isYearly, setIsYearly }: PricingToggleProps) {
             className="flex items-center gap-2 text-xs sm:text-sm bg-primary/10 text-primary px-3 py-1 rounded-full animate-pulse"
           >
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
-            <span>Economize até 20% + 1 mês grátis</span>
+            <span>Economize até 12% + 1 mês grátis</span>
           </motion.div>
         </AnimatePresence>
       </div>
