@@ -16,7 +16,7 @@ const reviews = [
   },
   {
     rating: 5,
-    text: "Com 4 barbeiros, era impossível controlar fila e agenda. O Flowo organizou tudo. Reduzimos espera de 45min pra 12min e os clientes avaliam 4.9 estrelas no Google agora.",
+    text: "Com 4 barbeiros, era impossível controlar agenda pelo WhatsApp. O Flowo organizou tudo. Cada um tem sua agenda individual e os clientes marcam direto com quem querem. Faltas caíram 70%!",
     author: "Leonardo Silva",
     role: "BarberHouse Premium - Copacabana, RJ",
     initials: "LS",
@@ -100,10 +100,10 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Mais de <span className="text-primary">570 Barbearias</span> Já Faturam Mais com Flowo ✂️
+            <span className="text-primary">Muitas Barbearias</span> Já Faturam Mais com Flowo ✂️
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Barbearias de todo Brasil economizam em média <strong>3h por dia</strong> e faturam <strong>+50% a mais</strong> nos primeiros 90 dias.
+            Barbearias de todo Brasil economizam tempo e reduzem faltas com agendamento inteligente via WhatsApp.
           </p>
         </motion.div>
 

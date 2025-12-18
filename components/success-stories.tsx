@@ -1,35 +1,33 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 
 const successStories = [
   {
-    name: "Clínica Saúde Total",
-    industry: "Saúde",
-    result: "Aumento de 52% nos agendamentos",
+    name: "Barbearia Dom Pedro",
+    industry: "Barbearia",
+    result: "Muito menos faltas",
     description:
-      "A Clínica Saúde Total eliminou as faltas e aumentou sua eficiência operacional com o Flowo.",
-    image: "/clinic-success.jpg",
-    link: "/casos-de-sucesso/clinica-saude-total",
+      "Com pagamento PIX antecipado e lembretes automáticos, o Dom Pedro reduziu drasticamente as faltas e aumentou o faturamento.",
+    image: "/images/barbershops/success-1.jpg",
+    link: "#",
   },
   {
-    name: "Estúdio Beleza Radiante",
-    industry: "Beleza",
-    result: "Crescimento de 40% no faturamento",
+    name: "Barber House SP",
+    industry: "Barbearia",
+    result: "R$ 8.000 extras por mês",
     description:
-      "O Estúdio Beleza Radiante otimizou sua agenda e expandiu sua base de clientes usando o Flowo.",
-    image: "/beauty-success.jpg",
-    link: "/casos-de-sucesso/estudio-beleza-radiante",
+      "Atendimento 24/7 via WhatsApp com IA garantiu agendamentos até de madrugada. Calendário sempre cheio.",
+    image: "/images/barbershops/success-2.jpg",
+    link: "#",
   },
   {
-    name: "Academia Corpo em Forma",
-    industry: "Fitness",
-    result: "Redução de 70% nas faltas",
+    name: "Corte Certo Barbearia",
+    industry: "Barbearia",
+    result: "5 barbeiros sincronizados",
     description:
-      "A Academia Corpo em Forma melhorou significativamente a assiduidade dos alunos com os lembretes do Flowo.",
-    image: "/gym-success.jpg",
-    link: "/casos-de-sucesso/academia-corpo-em-forma",
+      "Equipe inteira com agendas conectadas ao Google Calendar. Zero conflitos, cada barbeiro vê só os próprios horários.",
+    image: "/images/barbershops/success-3.jpg",
+    link: "#",
   },
 ];
 
@@ -43,7 +41,7 @@ export default function SuccessStories() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Histórias de Sucesso com o Flowo
+          Barbearias que Usam o Flowo
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {successStories.map((story, index) => (
@@ -57,6 +55,8 @@ export default function SuccessStories() {
               <Image
                 src={story.image}
                 alt={story.name}
+                width={800}
+                height={400}
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -65,14 +65,7 @@ export default function SuccessStories() {
                 <p className="text-2xl font-bold text-primary mb-4">
                   {story.result}
                 </p>
-                <p className="text-gray-700 mb-4">{story.description}</p>
-                <Link
-                  href={story.link}
-                  className="text-primary font-semibold flex items-center hover:underline"
-                >
-                  Ler estudo de caso completo
-                  <ArrowUpRight className="ml-2" />
-                </Link>
+                <p className="text-gray-700">{story.description}</p>
               </div>
             </motion.div>
           ))}

@@ -6,7 +6,7 @@ export default function CallToAction() {
     <section className="py-20 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-6">Chega de Perder Dinheiro com Clientes que Não Aparecem</h2>
-        <p className="text-xl mb-8">Junte-se a 570+ barbearias que reduziram faltas em 60% com o Flowo.</p>
+        <p className="text-xl mb-8">Junte-se às barbearias que reduziram faltas com lembretes automáticos e agendamento inteligente.</p>
         <LeadCaptureModal>
           <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-lg">
             Teste Grátis - Sem Cartão
