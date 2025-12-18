@@ -35,13 +35,14 @@ export function PricingSection({
           <PricingToggle isYearly={isYearly} setIsYearly={setIsYearly} />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16 items-stretch">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1 }}
+              className="h-full"
             >
               <PricingCard {...plan} isYearly={isYearly} />
             </motion.div>
@@ -53,10 +54,10 @@ export function PricingSection({
         {showCTA && (
           <div className="text-center bg-white/80 backdrop-blur-sm max-w-2xl mx-auto p-8 rounded-2xl shadow-sm border">
             <h3 className="text-2xl font-bold mb-4">
-              Pronto para Reduzir Faltas em 60%?
+              Pronto para Automatizar sua Barbearia?
             </h3>
             <p className="text-gray-600 mb-6">
-              Junte-se a 570+ barbearias que já otimizaram seu agendamento
+              Junte-se às barbearias que já otimizaram seu agendamento
               com o Flowo
             </p>
             <LeadCaptureModal>
@@ -64,11 +65,11 @@ export function PricingSection({
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                Teste Grátis - Sem Cartão
+                Começar Período de Teste
               </Button>
             </LeadCaptureModal>
             <p className="mt-4 text-sm text-gray-500">
-              14 dias grátis • Sem compromisso • Cancele quando quiser
+              14 dias de teste • Sem compromisso • Cancele quando quiser
             </p>
           </div>
         )}

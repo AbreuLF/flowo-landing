@@ -39,9 +39,9 @@ export function FeatureComparisonTable() {
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[300px]">Recurso</TableHead>
-                <TableHead className="text-center">Empreendedor</TableHead>
+                <TableHead className="text-center">Solo</TableHead>
                 <TableHead className="text-center bg-primary/5">
-                  Profissional
+                  Equipe
                 </TableHead>
                 <TableHead className="text-center">Empresarial</TableHead>
               </TableRow>
@@ -70,10 +70,10 @@ export function FeatureComparisonTable() {
                         )}
                       </TableCell>
                       <TableCell className="text-center">
-                        {renderValue(feature.empreendedor)}
+                        {renderValue(feature.solo)}
                       </TableCell>
                       <TableCell className="text-center bg-primary/5">
-                        {renderValue(feature.profissional)}
+                        {renderValue(feature.equipe)}
                       </TableCell>
                       <TableCell className="text-center">
                         {renderValue(feature.empresarial)}

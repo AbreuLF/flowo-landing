@@ -8,8 +8,8 @@ export function PricingHeader() {
         Escolha o Plano Ideal para sua Barbearia
       </h2>
       <p className="text-lg sm:text-xl text-gray-600">
-        Reduza faltas em 60% e aumente seu faturamento.
-        Teste grátis por 14 dias sem cartão de crédito.
+        Reduza faltas significativamente e aumente seu faturamento.
+        Teste por 14 dias sem cartão de crédito.
       </p>
     </div>
   );
