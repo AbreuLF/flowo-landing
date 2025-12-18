@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <SEO
         title="Sistema de Agendamento para Barbearia | WhatsApp + IA - Flowo"
-        description="Software de agendamento via WhatsApp para barbearias. Reduza faltas em 60%, gerencie barbeiros e aumente faturamento. Teste grátis 14 dias sem cartão. Usado por 573+ barbearias."
+        description="Software de agendamento via WhatsApp para barbearias. Reduza faltas, gerencie barbeiros e aumente faturamento. Teste grátis 14 dias sem cartão."
       />
       <SchemaMarkup />
       <UrgencyBanner />

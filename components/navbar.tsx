@@ -45,7 +45,7 @@ export default function Navbar() {
                 Entrar
               </Link>
               <LeadCaptureModal>
-                <Button size="sm">Teste Grátis</Button>
+                <Button size="sm">Começar Teste</Button>
               </LeadCaptureModal>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function Navbar() {
             </Link>
             <LeadCaptureModal>
               <Button className="mt-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                Teste Grátis
+                Começar Teste
               </Button>
             </LeadCaptureModal>
           </div>
