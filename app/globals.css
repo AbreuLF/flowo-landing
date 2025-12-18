@@ -68,34 +68,20 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg,
-    var(--secondary) 0%,      /* Purple */
-    var(--primary) 100%       /* Dark green */
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  /* Fallback for older browsers */
-  @supports not (background-clip: text) {
-    color: var(--primary);
-  }
+  color: var(--primary);
 }
 
-/* Custom gradient utilities using flowo-app colors */
+/* Custom gradient utilities using Flowo primary color */
 .gradient-bg-light {
-  background: linear-gradient(135deg,
-    oklch(0.95 0.04 245.8094) 0%,   /* Very light purple */
-    oklch(0.95 0.01 113.5445) 100%  /* Very light green */
-  );
+  background: oklch(0.97 0.005 113.545);
 }
 
 .gradient-bg-medium {
-  background: linear-gradient(135deg,
-    oklch(0.65 0.12 245.8094) 0%,    /* Medium purple */
-    oklch(0.45 0.10 240) 50%,        /* Deep blue middle (avoids yellow) */
-    oklch(0.35 0.08 240) 100%        /* Dark blue-gray */
-  );
+  background: oklch(0.45 0.03 113.545);
+}
+
+.gradient-bg-brand {
+  background: oklch(0.35 0.025 113.545);
 }
 
 /* Melhorias de acessibilidade */
