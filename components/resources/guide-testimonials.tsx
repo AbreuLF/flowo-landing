@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "Os guias do Flowo me ajudaram a aumentar a eficiência do meu consultório em 35%!",
-    author: "Dra. Ana Silva, Clínica Saúde Total",
+      "Os guias do Flowo me ajudaram a organizar minha barbearia de um jeito que nunca imaginei!",
+    author: "Rafael Costa, Barbearia Premium SP",
   },
   {
     quote:
-      "Graças aos guias do Flowo, reduzi as faltas de clientes em 60% e aumentei minha receita.",
-    author: "Carlos Mendes, Studio Beleza Total",
+      "Graças aos guias do Flowo, reduzi muito as faltas de clientes e aumentei minha receita.",
+    author: "Carlos Mendes, BarberHouse Copacabana",
   },
   {
     quote:
-      "Os guias de integração do Flowo me economizam 10 horas por semana em tarefas administrativas.",
-    author: "Patricia Santos, Espaço Terapêutico Equilíbrio",
+      "Os guias de integração do Flowo me economizam horas por semana em tarefas administrativas.",
+    author: "Marcos Silva, Corte Certo Barbearia",
   },
 ];
 

@@ -13,7 +13,7 @@ const featuredResources = [
     readTime: "10 min",
     tags: ["Agendamento", "Produtividade"],
     icon: Calendar,
-    sellHook: "Reduza faltas em até 60% com agendamento inteligente!",
+    sellHook: "Reduza faltas significativamente com agendamento inteligente!",
   },
   {
     title: "Integração com WhatsApp",
@@ -24,7 +24,7 @@ const featuredResources = [
     tags: ["Integração", "WhatsApp"],
     icon: MessageCircle,
     sellHook:
-      "Aumente o engajamento dos clientes em 40% com lembretes via WhatsApp!",
+      "Aumente o engajamento dos clientes com lembretes automáticos via WhatsApp!",
   },
   {
     title: "Maximizando a Produtividade com o Flowo",
@@ -34,7 +34,7 @@ const featuredResources = [
     readTime: "12 min",
     tags: ["Produtividade", "Recursos Avançados"],
     icon: Zap,
-    sellHook: "Economize até 15 horas por semana com automação inteligente!",
+    sellHook: "Economize horas toda semana com automação inteligente!",
   },
 ];
 

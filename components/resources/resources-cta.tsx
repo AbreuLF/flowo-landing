@@ -11,7 +11,7 @@ export function ResourcesCTA() {
           Pronto para Otimizar sua Barbearia?
         </h2>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Junte-se a 570+ barbearias que já reduziram faltas em 60% e aumentaram o faturamento com o Flowo.
+          Junte-se às barbearias que já reduziram faltas e aumentaram o faturamento com o Flowo.
         </p>
         <LeadCaptureModal>
           <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">

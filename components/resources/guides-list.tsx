@@ -9,7 +9,7 @@ const guides = [
     readTime: '10 min',
     tags: ['Agendamento', 'Produtividade'],
     icon: Calendar,
-    sellHook: 'Reduza faltas em até 60% com agendamento inteligente!'
+    sellHook: 'Reduza faltas significativamente com agendamento inteligente!'
   },
   {
     title: 'Integração com WhatsApp',
@@ -18,7 +18,7 @@ const guides = [
     readTime: '8 min',
     tags: ['Integração', 'WhatsApp'],
     icon: MessageCircle,
-    sellHook: 'Aumente o engajamento dos clientes em 40% com lembretes via WhatsApp!'
+    sellHook: 'Aumente o engajamento dos clientes com lembretes automáticos via WhatsApp!'
   },
   {
     title: 'Maximizando a Produtividade com o Flowo',
@@ -27,7 +27,7 @@ const guides = [
     readTime: '12 min',
     tags: ['Produtividade', 'Recursos Avançados'],
     icon: Zap,
-    sellHook: 'Economize até 15 horas por semana com automação inteligente!'
+    sellHook: 'Economize horas toda semana com automação inteligente!'
   },
   {
     title: 'Gerenciamento de Equipe Eficiente',
@@ -36,7 +36,7 @@ const guides = [
     readTime: '15 min',
     tags: ['Gestão de Equipe', 'Colaboração'],
     icon: Users,
-    sellHook: 'Aumente a eficiência da sua equipe em até 30% com gestão centralizada!'
+    sellHook: 'Aumente a eficiência da sua equipe com gestão centralizada!'
   },
   {
     title: 'Análise de Dados e Relatórios',
@@ -45,7 +45,7 @@ const guides = [
     readTime: '10 min',
     tags: ['Análise de Dados', 'Relatórios'],
     icon: BarChart,
-    sellHook: 'Tome decisões baseadas em dados e aumente seu faturamento em até 25%!'
+    sellHook: 'Tome decisões baseadas em dados e aumente seu faturamento!'
   },
   {
     title: 'Segurança e Conformidade no Flowo',
@@ -54,7 +54,7 @@ const guides = [
     readTime: '8 min',
     tags: ['Segurança', 'Conformidade'],
     icon: Shield,
-    sellHook: 'Garanta a proteção dos dados dos seus clientes e evite multas pesadas!'
+    sellHook: 'Garanta a proteção dos dados dos seus clientes com LGPD!'
   },
 ]
 

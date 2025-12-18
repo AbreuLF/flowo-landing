@@ -1,133 +1,176 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Clock,
   ArrowRight,
-  Zap,
+  Calendar,
   Users,
-  BarChart,
+  CreditCard,
   MessageCircle,
-  Shield,
-  Rocket,
+  Bell,
+  BarChart3,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { LeadCaptureModal } from "@/components/lead-capture-modal";
 
 const guides = [
   {
-    title: "Primeiros Passos com o Flowo",
+    title: "Guia Definitivo de Agendamento",
     description:
-      "Um guia completo para começar a usar o Flowo e configurar sua conta.",
+      "Configure seu calendário, automatize lembretes e reduza faltas em até 70%. O guia completo para otimizar sua agenda.",
     readTime: "10 min",
-    category: "Primeiros Passos",
-    icon: Rocket,
-    href: "/recursos/guias/primeiros-passos",
+    category: "Agendamento",
+    href: "/recursos/guias/guia-definitivo-agendamento",
+    icon: Calendar,
+    topics: ["Lembretes automáticos", "PIX antecipado", "Liberação de horários"],
   },
   {
-    title: "Otimizando seu Fluxo de Trabalho",
+    title: "Gerenciamento de Equipe",
     description:
-      "Aprenda a maximizar sua produtividade com as ferramentas avançadas do Flowo.",
+      "Organize a agenda de cada barbeiro, acompanhe desempenho e distribua clientes de forma inteligente.",
     readTime: "15 min",
-    category: "Produtividade",
-    icon: Zap,
-    href: "/recursos/guias/otimizando-fluxo-trabalho",
+    category: "Equipe",
+    href: "/recursos/guias/gerenciamento-equipe",
+    icon: Users,
+    topics: ["Agendas individuais", "Métricas de desempenho", "Comissões"],
   },
   {
-    title: "Integrando o Flowo com WhatsApp",
+    title: "Pagamentos com PIX",
     description:
-      "Guia passo a passo para configurar e utilizar a integração com WhatsApp.",
-    readTime: "8 min",
-    category: "Integrações",
-    icon: MessageCircle,
-    href: "/recursos/guias/integracao-whatsapp",
-  },
-  {
-    title: "Análise de Dados para Tomada de Decisões",
-    description:
-      "Como utilizar os relatórios do Flowo para impulsionar seu negócio.",
+      "Configure pagamentos antecipados via PIX, reduza faltas e receba antes mesmo do atendimento.",
     readTime: "12 min",
-    category: "Análise de Dados",
-    icon: BarChart,
-    href: "/recursos/guias/analise-dados-decisoes",
+    category: "Pagamentos",
+    href: "/recursos/guias/pagamentos-pix",
+    icon: CreditCard,
+    topics: ["PIX automático", "Política de reembolso", "Conta digital"],
   },
   {
-    title: "Gerenciando Equipes Remotas",
+    title: "Configurando WhatsApp com IA",
     description:
-      "Estratégias para coordenar equipes distribuídas usando o Flowo.",
-    readTime: "15 min",
-    category: "Gestão de Equipe",
-    icon: Users,
-    href: "/recursos/guias/equipes-remotas",
+      "Transforme seu WhatsApp em um assistente que responde clientes 24/7 e agenda automaticamente.",
+    readTime: "8 min",
+    category: "WhatsApp",
+    href: "/recursos/guias/configurando-whatsapp",
+    icon: MessageCircle,
+    topics: ["IA no WhatsApp", "Respostas automáticas", "Agendamento 24/7"],
   },
   {
-    title: "Segurança e Conformidade no Flowo",
+    title: "Reduzindo Faltas na Barbearia",
     description:
-      "Melhores práticas para proteger seus dados e manter a conformidade.",
-    readTime: "9 min",
-    category: "Segurança",
-    icon: Shield,
-    href: "/recursos/guias/seguranca-conformidade",
+      "Estratégias comprovadas para diminuir no-shows em até 80% com lembretes e políticas claras.",
+    readTime: "10 min",
+    category: "No-shows",
+    href: "/recursos/guias/reduzindo-faltas",
+    icon: Bell,
+    topics: ["Lembretes 24h/2h", "PIX antecipado", "Política de cancelamento"],
   },
   {
-    title: "Automatizando Tarefas Repetitivas",
+    title: "Relatórios e Métricas",
     description:
-      "Como usar a automação do Flowo para economizar tempo e reduzir erros.",
-    readTime: "11 min",
-    category: "Produtividade",
-    icon: Zap,
-    href: "/recursos/guias/automatizando-tarefas",
-  },
-  {
-    title: "Maximizando o Engajamento de Clientes",
-    description:
-      "Estratégias para melhorar a comunicação e retenção de clientes com o Flowo.",
-    readTime: "13 min",
-    category: "Marketing",
-    icon: Users,
-    href: "/recursos/guias/engajamento-clientes",
+      "Entenda as métricas essenciais para acompanhar o desempenho da sua barbearia e crescer.",
+    readTime: "10 min",
+    category: "Métricas",
+    href: "/recursos/guias/relatorios-metricas",
+    icon: BarChart3,
+    topics: ["Taxa de ocupação", "Desempenho por barbeiro", "Horários de pico"],
   },
 ];
 
 export function GuideGrid() {
+  if (guides.length === 0) {
+    return null;
+  }
+
   return (
-    <section className="py-20 px-4 bg-gray-50">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Explore Nossos Guias
+    <section className="py-16 px-4">
+      <div className="container mx-auto max-w-4xl">
+        <h2 className="text-2xl font-bold text-gray-900 mb-8">
+          Guias Disponíveis
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="space-y-6">
           {guides.map((guide, index) => (
-            <motion.div
+            <Link
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              href={guide.href}
+              className="group block bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
             >
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <guide.icon className="w-8 h-8 text-primary mr-3" />
-                  <h3 className="text-xl font-semibold">{guide.title}</h3>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+                {/* Icon */}
+                <div className="p-3 bg-primary/5 rounded-xl w-fit group-hover:bg-primary/10 transition-colors">
+                  <guide.icon className="w-6 h-6 text-primary" />
                 </div>
-                <p className="text-gray-600 mb-4">{guide.description}</p>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {guide.readTime}
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <span className="text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full">
+                      {guide.category}
+                    </span>
+                    <span className="text-xs text-gray-500 flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" />
+                      {guide.readTime} de leitura
+                    </span>
                   </div>
-                  <span className="text-sm font-medium text-primary">
-                    {guide.category}
-                  </span>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                    {guide.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-4">{guide.description}</p>
+
+                  {/* Topics */}
+                  <div className="flex flex-wrap gap-2">
+                    {guide.topics.map((topic, topicIndex) => (
+                      <span
+                        key={topicIndex}
+                        className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                      >
+                        {topic}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <Button asChild className="w-full">
-                  <Link href={guide.href}>
-                    Ler guia <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+
+                {/* Arrow */}
+                <div className="hidden sm:flex items-center">
+                  <div className="p-2 rounded-full bg-gray-100 group-hover:bg-primary group-hover:text-white transition-all">
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
               </div>
-            </motion.div>
+            </Link>
           ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 p-8 bg-gray-50 rounded-2xl border border-gray-100 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
+            Quer ver o Flowo na prática?
+          </h3>
+          <p className="text-gray-600 mb-6 max-w-md mx-auto">
+            Configure sua barbearia em 5 minutos. 14 dias grátis para testar
+            tudo que você leu nos guias.
+          </p>
+          <LeadCaptureModal>
+            <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+              Começar teste grátis
+            </Button>
+          </LeadCaptureModal>
+        </div>
+
+        {/* More guides coming */}
+        <div className="mt-12 text-center">
+          <p className="text-gray-500 text-sm">
+            Mais guias em breve. Tem uma dúvida específica?{" "}
+            <a
+              href="mailto:contato@flowo.com.br"
+              className="text-primary hover:underline"
+            >
+              Fale conosco
+            </a>
+          </p>
         </div>
       </div>
     </section>
