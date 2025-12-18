@@ -11,7 +11,7 @@ const features = [
   {
     icon: Bell,
     title: "Lembretes Inteligentes",
-    description: "Notificações automáticas via WhatsApp que reduzem faltas em até 60%. Nunca mais perca um compromisso."
+    description: "Notificações automáticas via WhatsApp que reduzem faltas significativamente. Nunca mais perca um compromisso."
   },
   {
     icon: Zap,
@@ -55,7 +55,7 @@ export default function SmartBooking() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Economize até 80% do tempo operacional com agendamento automático e gestão inteligente de lembretes.
+              Economize horas todos os dias com agendamento automático e gestão inteligente de lembretes.
             </motion.p>
 
             <div className="space-y-8">
@@ -104,13 +104,13 @@ export default function SmartBooking() {
               </div>
 
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl">
-                <p className="font-bold text-2xl text-primary">80%</p>
-                <p className="text-sm text-gray-600">Tempo economizado</p>
+                <p className="font-bold text-2xl text-primary">3h+</p>
+                <p className="text-sm text-gray-600">Economizadas/dia</p>
               </div>
 
               <div className="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-xl">
-                <p className="font-bold text-2xl text-green-500">60%</p>
-                <p className="text-sm text-gray-600">Menos faltas</p>
+                <p className="font-bold text-2xl text-green-500">Menos</p>
+                <p className="text-sm text-gray-600">Faltas</p>
               </div>
             </div>
           </motion.div>

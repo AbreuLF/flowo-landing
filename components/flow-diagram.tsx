@@ -26,14 +26,14 @@ const steps = [
     title: "Lembretes Automáticos",
     description: "Lembretes personalizados são enviados para reduzir faltas.",
     detail:
-      "Lembretes inteligentes são enviados em momentos estratégicos, reduzindo faltas em até 60%.",
+      "Lembretes inteligentes são enviados 24h e 2h antes do horário, reduzindo faltas significativamente.",
   },
   {
     icon: TrendingUp,
     title: "Aumento no Faturamento",
     description: "A otimização resulta em mais negócios e maior satisfação.",
     detail:
-      "Clientes relatam um aumento médio de 30% no faturamento após 3 meses de uso do Flowo.",
+      "Menos faltas e agenda sempre cheia resultam em aumento significativo no faturamento.",
   },
 ];
 
