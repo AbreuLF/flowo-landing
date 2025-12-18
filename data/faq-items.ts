@@ -7,6 +7,16 @@ export const faqItems: FAQItem[] = [
     category: "WhatsApp"
   },
   {
+    question: "Como funciona o pagamento via PIX?",
+    answer: "O Flowo permite configurar pagamento antecipado via PIX. O cliente recebe o link de pagamento e o horário só é confirmado após o pagamento. Isso reduz drasticamente as faltas, já que o cliente tem compromisso financeiro.",
+    category: "Pagamento"
+  },
+  {
+    question: "O Flowo sincroniza com meu Google Calendar?",
+    answer: "Sim! Sincroniza com Google Calendar, Apple Calendar e Microsoft Outlook. Quando um cliente agenda, o horário aparece automaticamente no seu calendário pessoal em segundos. Se você criar um compromisso no seu calendário, o Flowo também bloqueia o horário. Tudo em tempo real, sem conflitos.",
+    category: "Calendário"
+  },
+  {
     question: "Quanto tempo leva para configurar o Flowo na minha barbearia?",
     answer: "Em média 30 minutos. Você cadastra seus barbeiros, serviços (corte, barba, degradê, etc) e horários de funcionamento. Conecta o WhatsApp e pronto. Nossa equipe te ajuda no onboarding para garantir que tudo funcione perfeitamente.",
     category: "Configuração"
@@ -18,7 +28,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "Como os lembretes reduzem as faltas?",
-    answer: "O sistema manda lembrete automático 1 dia antes e 1 hora antes do horário marcado, direto no WhatsApp do cliente. As mensagens são personalizadas com o nome do cliente, horário e serviço. Com isso, suas faltas caem de 40-50% para menos de 20%.",
+    answer: "O sistema manda lembrete automático 24h antes e 2h antes do horário marcado, direto no WhatsApp do cliente. O cliente pode confirmar, remarcar ou cancelar respondendo a mensagem. Se não responder, o sistema pode liberar o horário automaticamente.",
     category: "Lembretes"
   },
   {
@@ -28,29 +38,27 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "Consigo gerenciar vários barbeiros na mesma agenda?",
-    answer: "Sim! Você cadastra cada barbeiro com seus horários e especialidades. Quando o cliente agenda, o sistema mostra os horários de quem está disponível. Você também pode definir preferências - tipo o João só fazer barba, ou a Maria só atender das 14h em diante.",
+    answer: "Sim! Você cadastra cada barbeiro com seus horários, serviços e especialidades. Quando o cliente agenda, o sistema mostra os horários de quem está disponível. Cada profissional pode ter preços diferentes e a agenda individual sincroniza com o calendário pessoal dele.",
     category: "Equipe"
   },
   {
+    question: "Posso integrar o Flowo com outros sistemas?",
+    answer: "Sim! Oferecemos webhooks para você receber notificações em tempo real de agendamentos, cancelamentos, pagamentos e mais. Você pode conectar com seu sistema de gestão, CRM ou qualquer ferramenta que aceite webhooks. No plano Empresarial, também temos API completa.",
+    category: "Integrações"
+  },
+  {
     question: "O sistema guarda histórico dos clientes?",
-    answer: "Sim. Cada vez que um cliente vem, o sistema registra: que serviço fez, quanto tempo levou, se chegou no horário, etc. Na próxima vez que ele agendar, você já sabe do histórico dele e pode sugerir combos ou serviços complementares.",
+    answer: "Sim. Cada vez que um cliente vem, o sistema registra: que serviço fez, quanto tempo levou, preferências, se chegou no horário, etc. Na próxima vez que ele agendar, a IA já sabe do histórico dele e pode sugerir combos ou serviços complementares automaticamente.",
     category: "Clientes"
   },
   {
     question: "Tem período de teste?",
-    answer: "Sim! 14 dias grátis, sem precisar cadastrar cartão. Durante o teste você tem acesso completo ao sistema: agendamento pelo WhatsApp, lembretes automáticos, gestão de equipe, tudo. Se não gostar, é só não contratar - simples assim.",
+    answer: "Sim! 14 dias grátis, sem precisar cadastrar cartão. Durante o teste você tem acesso completo ao sistema: agendamento pelo WhatsApp com IA, pagamento via PIX, sync de calendários, lembretes automáticos, gestão de equipe, tudo. Se não gostar, é só não contratar.",
     category: "Teste"
   },
-  // TODO: Descomentar quando funcionalidade de campanhas estiver pronta
-  // {
-  //   question: "Como funcionam as campanhas automáticas?",
-  //   answer: "Você cria uma campanha uma única vez (tipo 'Promoção de verão: R$ 10 off no degradê') e o sistema manda automaticamente pra sua base de clientes via WhatsApp. Pode mandar pra todos, ou só pra quem não vem há 30 dias, ou só pra quem nunca fez barba. Você escolhe.",
-  //   category: "Campanhas"
-  // },
   {
     question: "E se eu precisar de ajuda? Tem suporte?",
-    answer: "Tem suporte 24/7 via chat e email. Resposta em até 5 minutos. Além disso, você tem acesso a uma base de conhecimento com vídeos e guias passo a passo. No plano Barbearia e Franquia, você tem suporte prioritário e um gerente de conta dedicado.",
+    answer: "Tem! Suporte via WhatsApp e email com resposta rápida. Além disso, você tem acesso a uma base de conhecimento com vídeos e guias passo a passo. No plano Profissional, você tem suporte prioritário. No Empresarial, um gerente de conta dedicado.",
     category: "Suporte"
   }
 ]
-
