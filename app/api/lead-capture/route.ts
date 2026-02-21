@@ -1,35 +1,15 @@
 import { NextResponse } from "next/server";
 import * as Sentry from "@sentry/nextjs";
 import { getClientIp } from "@/lib/request-ip";
-import { applyMemoryRateLimit } from "@/lib/rate-limit";
+import { applyRateLimit } from "@/lib/rate-limit";
+import { leadCaptureSchema, getValidationMessage } from "@/lib/validation";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 export const runtime = "nodejs";
+export const preferredRegion = ["gru1"];
 
 const LEAD_CAPTURE_WINDOW_MS = 60_000;
 const LEAD_CAPTURE_LIMIT = 15;
-
-function asTrimmedString(value: unknown): string {
-  return typeof value === "string" ? value.trim() : "";
-}
-
-function normalizeEmail(email: string): string {
-  return email.toLowerCase().trim();
-}
-
-function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function isValidWhatsapp(raw: string): boolean {
-  const digits = raw.replace(/\D/g, "");
-  return digits.length >= 10 && digits.length <= 15;
-}
-
-function getHoneypotValue(body: unknown): string {
-  if (!body || typeof body !== "object") return "";
-  const fields = body as Record<string, unknown>;
-  return asTrimmedString(fields.website || fields.company || fields.hp || fields.honeypot);
-}
 
 function tooManyRequestsResponse(retryAfterSeconds: number) {
   return NextResponse.json(
@@ -48,7 +28,7 @@ function tooManyRequestsResponse(retryAfterSeconds: number) {
 
 export async function POST(request: Request) {
   const ip = getClientIp(request);
-  const rateLimit = applyMemoryRateLimit({
+  const rateLimit = await applyRateLimit({
     bucket: "lead-capture",
     key: ip,
     limit: LEAD_CAPTURE_LIMIT,
@@ -72,37 +52,41 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const name = asTrimmedString(body?.name);
-    const email = normalizeEmail(asTrimmedString(body?.email));
-    const whatsapp = asTrimmedString(body?.whatsapp);
-    const source = asTrimmedString(body?.source);
-    const honeypot = getHoneypotValue(body);
+    const parsed = leadCaptureSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, message: getValidationMessage(parsed.error) },
+        { status: 400 }
+      );
+    }
+
+    const {
+      name,
+      email,
+      whatsapp,
+      source = "",
+      company = "",
+      turnstileToken = "",
+    } = parsed.data;
 
     // Return success for honeypot hits to avoid feedback loops for bots.
-    if (honeypot) {
+    if (company) {
       return NextResponse.json({
         success: true,
         message: "Lead captured successfully",
       });
     }
 
-    if (name.length < 2 || name.length > 120) {
-      return NextResponse.json(
-        { success: false, message: "Informe um nome válido." },
-        { status: 400 }
-      );
-    }
+    const turnstileCheck = await verifyTurnstile({
+      token: turnstileToken,
+      ip,
+      expectedAction: "lead_capture",
+    });
 
-    if (!isValidWhatsapp(whatsapp)) {
+    if (!turnstileCheck.success) {
       return NextResponse.json(
-        { success: false, message: "Informe um WhatsApp válido." },
-        { status: 400 }
-      );
-    }
-
-    if (email && !isValidEmail(email)) {
-      return NextResponse.json(
-        { success: false, message: "Por favor, use um e-mail válido." },
+        { success: false, message: "Falha na verificação anti-bot." },
         { status: 400 }
       );
     }
@@ -129,7 +113,6 @@ export async function POST(request: Request) {
       data: {
         name,
         hasEmail: !!email,
-        whatsapp,
         source,
         ip,
       },
@@ -144,6 +127,7 @@ export async function POST(request: Request) {
         source,
         ip,
       });
+
       return NextResponse.json({
         success: true,
         message: "Lead captured successfully",
@@ -158,7 +142,6 @@ export async function POST(request: Request) {
     if (!apiKey || !audienceId || !serverPrefix) {
       console.error("Mailchimp configuration missing");
 
-      // Capture configuration error in Sentry
       Sentry.captureException(new Error("Mailchimp configuration missing"), {
         level: "error",
         tags: {
@@ -178,7 +161,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Add subscriber to Mailchimp
     const tags = ["flowo"];
     if (source) {
       tags.push(source.slice(0, 50));
@@ -209,11 +191,7 @@ export async function POST(request: Request) {
       const errorData = await mailchimpResponse.json();
       console.error("Mailchimp error:", errorData);
 
-      // If user already exists, still return success
       if (errorData.title === "Member Exists") {
-        console.log("Lead already exists in Mailchimp:", email);
-
-        // Log this as info in Sentry (not an error)
         Sentry.captureMessage("Duplicate lead submission", {
           level: "info",
           tags: {
@@ -233,12 +211,10 @@ export async function POST(request: Request) {
         });
       }
 
-      // Handle invalid email
       if (
         errorData.title === "Invalid Resource" &&
         errorData.detail?.includes("looks fake or invalid")
       ) {
-        // Capture invalid email in Sentry
         Sentry.captureMessage("Invalid email provided", {
           level: "warning",
           tags: {
@@ -258,47 +234,23 @@ export async function POST(request: Request) {
         );
       }
 
-      // Capture other Mailchimp errors
-
       Sentry.captureException(errorData, {
         level: "error",
         tags: {
           component: "lead-capture",
           error_type: "mailchimp_api",
         },
-          extra: {
-            mailchimpError: errorData,
-            name,
-            email,
-            whatsapp,
-            source,
-            ip,
-          },
-        });
+        extra: {
+          mailchimpError: errorData,
+          name,
+          email,
+          source,
+          ip,
+        },
+      });
 
       throw errorData;
     }
-
-    console.log("Lead captured and added to Mailchimp:", {
-      name,
-      email,
-      whatsapp,
-      source,
-      ip,
-    });
-
-    // Add success breadcrumb
-    Sentry.addBreadcrumb({
-      category: "lead-capture",
-      message: "Lead successfully captured",
-      level: "info",
-      data: {
-        name,
-        email,
-        source,
-        ip,
-      },
-    });
 
     return NextResponse.json({
       success: true,
@@ -307,7 +259,6 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error capturing lead:", error);
 
-    // Capture the error in Sentry with full context
     Sentry.captureException(error, {
       level: "error",
       tags: {
@@ -318,10 +269,6 @@ export async function POST(request: Request) {
         lead: {
           name: "Lead Information",
           data: {
-            // Only send non-sensitive information
-            hasName: true,
-            hasEmail: !!request.headers.get("content-type"),
-            hasWhatsapp: true,
             ip,
           },
         },

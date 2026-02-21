@@ -9,22 +9,33 @@
 
 ## Em Execução (anti-abuso de endpoints)
 - [x] **T2.1** Criar utilitário para captura de IP real (`lib/request-ip.ts`).
-- [x] **T2.2** Criar rate limiter em memória (`lib/rate-limit.ts`).
+- [x] **T2.2** Criar rate limiter com fallback local + Redis (`lib/rate-limit.ts`).
 - [x] **T2.3** Integrar rate limit no `/api/lead-capture`.
 - [x] **T2.4** Integrar rate limit no `/api/contact-form`.
 - [x] **T2.5** Adicionar honeypot nos formulários clientes (`company` hidden field).
-- [ ] **T2.6** Ajustar limites por rota com base no tráfego real (após 48h).
+- [x] **T2.6** Adicionar validação com `zod` nas APIs de formulário.
+- [x] **T2.7** Integrar Cloudflare Turnstile (frontend + backend).
+- [ ] **T2.8** Ajustar limites por rota com base no tráfego real (após 48h).
 
 ## Próximo Lote (alto impacto fora do código)
-- [ ] **T3.1** Criar regras WAF em modo monitor na Vercel.
-- [ ] **T3.2** Aplicar challenge para UAs/ASNs/IPs com padrão de abuso.
-- [ ] **T3.3** Aplicar deny para ofensores confirmados após janela de monitoramento.
+- [x] **T3.1** Criar regras WAF na Vercel.
+- [x] **T3.2** Aplicar challenge para UAs com padrão de abuso.
+- [x] **T3.3** Aplicar deny para paths de exploração comuns.
 - [ ] **T3.4** Definir allowlist explícita para bots de SEO essenciais.
+- [x] **T3.5** Documentar playbook operacional WAF (`docs/plans/2026-02-21-vercel-waf-playbook.md`).
+- [x] **T3.6** Registrar execução com Vercel CLI/API (`docs/plans/2026-02-21-vercel-cli-execution-log.md`).
 
 ## Observabilidade e Governança
 - [ ] **T4.1** Consolidar baseline por rota + UA + ASN (`D-2` vs `D+2` deploy).
 - [ ] **T4.2** Criar alerta de pico em `iad1` e alerta de 429 nas APIs.
 - [ ] **T4.3** Revisão semanal com relatório de redução (%) e impacto em leads.
+- [x] **T4.4** Definir budget e checklist operacional (`docs/plans/2026-02-21-observability-budget.md`).
+
+## SEO Técnico e Crawl Budget
+- [x] **T5.1** Remover SEO legado com `next/head` na App Router.
+- [x] **T5.2** Adicionar `app/robots.ts` para política de crawlers.
+- [x] **T5.3** Adicionar `app/sitemap.ts` para indexação explícita.
+- [x] **T5.4** Lazy-load de widget não essencial (`AIChatbot`).
 
 ## Critério de Sucesso (30 dias)
 - [ ] **S1** Redução de 40-60% nos Edge Requests totais.

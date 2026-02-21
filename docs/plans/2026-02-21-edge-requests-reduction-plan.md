@@ -145,9 +145,15 @@ import Image from "next/image";
 - `.env.example` atualizado com toggle `SENTRY_TUNNEL_ROUTE`.
 - Fase 5 iniciada (proteção de API):
   - `lib/request-ip.ts` para identificação de IP;
-  - `lib/rate-limit.ts` para throttling por janela;
-  - rate limit e honeypot aplicados em `app/api/lead-capture/route.ts` e `app/api/contact-form/route.ts`;
-  - campos honeypot (`company`) adicionados em formulários cliente.
+  - `lib/rate-limit.ts` para throttling por janela com fallback local + Redis;
+  - rate limit, validação `zod` e honeypot aplicados em `app/api/lead-capture/route.ts` e `app/api/contact-form/route.ts`;
+  - Turnstile aplicado frontend/backend para bloqueio anti-bot;
+  - campos honeypot (`company`) adicionados em formulários cliente;
+  - `app/robots.ts` e `app/sitemap.ts` adicionados para crawl budget.
+- Fase 6 executada parcialmente via Vercel CLI/API:
+  - região padrão de funções alterada para `gru1`;
+  - regras de firewall aplicadas (challenge para UAs suspeitas + deny para paths de exploração);
+  - execução documentada em `docs/plans/2026-02-21-vercel-cli-execution-log.md`.
 
 ### 10.2 Validação executada
 ```bash
@@ -156,6 +162,6 @@ pnpm build
 - Resultado: apenas rotas dinâmicas em `/api/*`; ícones agora estáticos (`/icon.png`, `/apple-icon.png`).
 
 ### 10.3 Próxima execução imediata (próximo commit)
-1. Fase 6: regras WAF em modo monitor.
-2. Fase 1: baseline consolidado por rota + UA + ASN (antes/depois).
-3. Fase 5.2: calibrar limites por rota após 48h de telemetria.
+1. Fase 1: baseline consolidado por rota + UA + ASN (antes/depois).
+2. Fase 5.2: calibrar limites por rota após 48h de telemetria.
+3. Fase 6.3: revisar falso positivo e ajustar allowlist para bots SEO essenciais.

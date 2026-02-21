@@ -22,6 +22,7 @@ import {
 import countries from "@/lib/countries";
 import { FlagIcon, FlagIconCode } from "react-flag-kit";
 import { CheckCircle2, XCircle, Download, FileText } from "lucide-react";
+import { TurnstileWidget } from "@/components/turnstile-widget";
 
 const formatPhoneNumber = (phone: string, dialCode: string) => {
   const cleaned = phone.replace(/\D/g, "");
@@ -55,6 +56,7 @@ export function DownloadGateModal({
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [company, setCompany] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [countryCode, setCountryCode] = useState<FlagIconCode>("BR");
   const [dialCode, setDialCode] = useState("+55");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -91,6 +93,7 @@ export function DownloadGateModal({
           whatsapp: `${dialCode}${whatsapp}`,
           source: `download:${resourceTitle}`,
           company,
+          turnstileToken,
         }),
       });
 
@@ -167,6 +170,7 @@ export function DownloadGateModal({
     setEmail("");
     setWhatsapp("");
     setCompany("");
+    setTurnstileToken("");
     setCountryCode("BR");
     setDialCode("+55");
     setIsSuccess(false);
@@ -363,7 +367,19 @@ export function DownloadGateModal({
                       />
                     </div>
                   </div>
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <TurnstileWidget
+                    action="lead_capture"
+                    onTokenChange={setTurnstileToken}
+                    className="mx-auto"
+                  />
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={
+                      isSubmitting ||
+                      (Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) && !turnstileToken)
+                    }
+                  >
                     {isSubmitting ? (
                       "Processando..."
                     ) : (

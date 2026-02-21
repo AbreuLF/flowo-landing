@@ -1,3 +1,5 @@
+import { Redis } from "@upstash/redis";
+
 type BucketEntry = {
   count: number;
   resetAt: number;
@@ -20,6 +22,27 @@ type LimitOptions = {
 
 const buckets = new Map<string, Map<string, BucketEntry>>();
 let cleanupCounter = 0;
+let redisClient: Redis | null | undefined;
+
+function getRedisClient(): Redis | null {
+  if (redisClient !== undefined) {
+    return redisClient;
+  }
+
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+  if (!url || !token) {
+    redisClient = null;
+    return redisClient;
+  }
+
+  redisClient = new Redis({
+    url,
+    token,
+  });
+  return redisClient;
+}
 
 function getBucket(name: string): Map<string, BucketEntry> {
   const existing = buckets.get(name);
@@ -45,7 +68,7 @@ function cleanupExpiredEntries(): void {
   }
 }
 
-export function applyMemoryRateLimit({
+function applyInMemoryRateLimit({
   bucket,
   key,
   limit,
@@ -93,4 +116,46 @@ export function applyMemoryRateLimit({
     resetAt: current.resetAt,
     retryAfterSeconds: Math.max(Math.ceil((current.resetAt - now) / 1000), 1),
   };
+}
+
+async function applyRedisRateLimit({
+  bucket,
+  key,
+  limit,
+  windowMs,
+}: LimitOptions): Promise<LimitResult | null> {
+  const redis = getRedisClient();
+  if (!redis) return null;
+
+  const windowSeconds = Math.ceil(windowMs / 1000);
+  const redisKey = `ratelimit:${bucket}:${key}`;
+
+  try {
+    const current = await redis.incr(redisKey);
+    if (current === 1) {
+      await redis.expire(redisKey, windowSeconds);
+    }
+
+    const ttl = Math.max((await redis.ttl(redisKey)) || windowSeconds, 1);
+    const resetAt = Date.now() + ttl * 1000;
+    const allowed = current <= limit;
+
+    return {
+      allowed,
+      limit,
+      remaining: allowed ? Math.max(limit - current, 0) : 0,
+      resetAt,
+      retryAfterSeconds: ttl,
+    };
+  } catch (error) {
+    console.error("Redis rate limiter failed, falling back to memory:", error);
+    return null;
+  }
+}
+
+export async function applyRateLimit(options: LimitOptions): Promise<LimitResult> {
+  const redisResult = await applyRedisRateLimit(options);
+  if (redisResult) return redisResult;
+
+  return applyInMemoryRateLimit(options);
 }

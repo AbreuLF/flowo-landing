@@ -1,29 +1,18 @@
 import { NextResponse } from "next/server";
 import { getClientIp } from "@/lib/request-ip";
-import { applyMemoryRateLimit } from "@/lib/rate-limit";
+import { applyRateLimit } from "@/lib/rate-limit";
+import { contactFormSchema, getValidationMessage } from "@/lib/validation";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 export const runtime = "nodejs";
+export const preferredRegion = ["gru1"];
 
 const CONTACT_WINDOW_MS = 60_000;
 const CONTACT_LIMIT = 10;
 
-function asTrimmedString(value: unknown): string {
-  return typeof value === "string" ? value.trim() : "";
-}
-
-function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function getHoneypotValue(body: unknown): string {
-  if (!body || typeof body !== "object") return "";
-  const fields = body as Record<string, unknown>;
-  return asTrimmedString(fields.website || fields.company || fields.hp || fields.honeypot);
-}
-
 export async function POST(request: Request) {
   const ip = getClientIp(request);
-  const rateLimit = applyMemoryRateLimit({
+  const rateLimit = await applyRateLimit({
     bucket: "contact-form",
     key: ip,
     limit: CONTACT_LIMIT,
@@ -47,36 +36,34 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const name = asTrimmedString(body?.name);
-    const email = asTrimmedString(body?.email).toLowerCase();
-    const message = asTrimmedString(body?.message);
-    const honeypot = getHoneypotValue(body);
+    const parsed = contactFormSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, message: getValidationMessage(parsed.error) },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, message, company = "", turnstileToken = "" } = parsed.data;
 
     // Return success for honeypot submissions to discourage bot retries.
-    if (honeypot) {
+    if (company) {
       return NextResponse.json({
         success: true,
         message: "Message sent successfully",
       });
     }
 
-    if (name.length < 2 || name.length > 120) {
-      return NextResponse.json(
-        { success: false, message: "Informe um nome válido." },
-        { status: 400 }
-      );
-    }
+    const turnstileCheck = await verifyTurnstile({
+      token: turnstileToken,
+      ip,
+      expectedAction: "contact_form",
+    });
 
-    if (!isValidEmail(email)) {
+    if (!turnstileCheck.success) {
       return NextResponse.json(
-        { success: false, message: "Informe um e-mail válido." },
-        { status: 400 }
-      );
-    }
-
-    if (message.length < 10 || message.length > 2000) {
-      return NextResponse.json(
-        { success: false, message: "Mensagem inválida." },
+        { success: false, message: "Falha na verificação anti-bot." },
         { status: 400 }
       );
     }

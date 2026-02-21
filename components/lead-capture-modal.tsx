@@ -22,6 +22,7 @@ import {
 import countries from "@/lib/countries";
 import { FlagIcon, FlagIconCode } from "react-flag-kit";
 import { CheckCircle2, XCircle } from "lucide-react";
+import { TurnstileWidget } from "@/components/turnstile-widget";
 
 const formatPhoneNumber = (phone: string, dialCode: string) => {
   // Remove all non-digit characters
@@ -48,6 +49,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [company, setCompany] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [countryCode, setCountryCode] = useState<FlagIconCode>("BR"); // Default to Brazil
   const [dialCode, setDialCode] = useState("+55"); // Default to Brazil dial code
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -83,6 +85,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
           email,
           whatsapp: `${dialCode}${whatsapp}`,
           company,
+          turnstileToken,
         }),
       });
 
@@ -154,6 +157,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
     setEmail("");
     setWhatsapp("");
     setCompany("");
+    setTurnstileToken("");
     setCountryCode("BR");
     setDialCode("+55");
     setIsSuccess(false);
@@ -326,7 +330,19 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
                     />
                   </div>
                 </div>
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <TurnstileWidget
+                  action="lead_capture"
+                  onTokenChange={setTurnstileToken}
+                  className="mx-auto"
+                />
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={
+                    isSubmitting ||
+                    (Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) && !turnstileToken)
+                  }
+                >
                   {isSubmitting ? "Enviando..." : "Iniciar Período de Teste"}
                 </Button>
               </form>

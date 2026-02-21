@@ -1,4 +1,4 @@
-import SEO from "@/components/seo";
+import type { Metadata } from "next";
 import SchemaMarkup from "@/components/schema-markup";
 import UrgencyBanner from "@/components/urgency-banner";
 import Navbar from "@/components/navbar";
@@ -11,16 +11,18 @@ import FAQ from "@/components/faq";
 import CallToAction from "@/components/call-to-action";
 import SupportSection from "@/components/support-section";
 import Footer from "@/components/footer";
-import AIChatbot from "@/components/ai-chatbot";
 import { Section } from "@/components/section";
+import AIChatbotLazy from "@/components/ai-chatbot-lazy";
+
+export const metadata: Metadata = {
+  title: "Sistema de Agendamento para Barbearia | WhatsApp + IA - Flowo",
+  description:
+    "Software de agendamento via WhatsApp para barbearias. Reduza faltas, gerencie barbeiros e aumente faturamento. Teste grátis 14 dias sem cartão.",
+};
 
 export default function Home() {
   return (
     <>
-      <SEO
-        title="Sistema de Agendamento para Barbearia | WhatsApp + IA - Flowo"
-        description="Software de agendamento via WhatsApp para barbearias. Reduza faltas, gerencie barbeiros e aumente faturamento. Teste grátis 14 dias sem cartão."
-      />
       <SchemaMarkup />
       <UrgencyBanner />
       <Navbar />
@@ -45,7 +47,7 @@ export default function Home() {
         </Section>
       </main>
       <Footer />
-      <AIChatbot />
+      <AIChatbotLazy />
     </>
   );
 }

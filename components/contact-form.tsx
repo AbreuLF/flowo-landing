@@ -5,12 +5,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { TurnstileWidget } from "@/components/turnstile-widget"
 
 export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [company, setCompany] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
@@ -27,7 +29,7 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, message, company }),
+        body: JSON.stringify({ name, email, message, company, turnstileToken }),
       })
 
       if (!response.ok) {
@@ -40,6 +42,7 @@ export default function ContactForm() {
       setEmail('')
       setMessage('')
       setCompany('')
+      setTurnstileToken('')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred. Please try again.')
     } finally {
@@ -77,8 +80,13 @@ export default function ContactForm() {
               <Label htmlFor="message">Mensagem</Label>
               <Textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} required />
             </div>
+            <TurnstileWidget action="contact_form" onTokenChange={setTurnstileToken} className="mx-auto" />
             {error && <p className="text-red-500">{error}</p>}
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isSubmitting || (Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) && !turnstileToken)}
+            >
               {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
             </Button>
           </form>
