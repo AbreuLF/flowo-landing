@@ -75,6 +75,46 @@ const guides = [
     icon: BarChart3,
     topics: ["Taxa de ocupação", "Desempenho por barbeiro", "Horários de pico"],
   },
+  {
+    title: "Aumentar Ticket Médio",
+    description:
+      "Estratégias para vender mais por atendimento com combos, upgrades e oferta contextual.",
+    readTime: "9 min",
+    category: "Financeiro",
+    href: "/recursos/guias/aumentar-ticket-medio",
+    icon: CreditCard,
+    topics: ["Combos", "Upsell inteligente", "Preço por valor"],
+  },
+  {
+    title: "Escala de Equipe",
+    description:
+      "Monte uma escala eficiente para reduzir atrasos, conflitos e sobrecarga na operação.",
+    readTime: "11 min",
+    category: "Equipe",
+    href: "/recursos/guias/escala-equipe",
+    icon: Users,
+    topics: ["Capacidade semanal", "Distribuição de agenda", "Turnos"],
+  },
+  {
+    title: "Fidelização de Clientes",
+    description:
+      "Aumente a frequência de retorno com reativação e relacionamento contínuo no WhatsApp.",
+    readTime: "10 min",
+    category: "Marketing",
+    href: "/recursos/guias/fidelizacao-clientes",
+    icon: MessageCircle,
+    topics: ["Reativação", "Recorrência", "Pós-atendimento"],
+  },
+  {
+    title: "Controle Financeiro da Barbearia",
+    description:
+      "Aprenda a acompanhar caixa, margem e indicadores essenciais para tomar decisões melhores.",
+    readTime: "12 min",
+    category: "Financeiro",
+    href: "/recursos/guias/controle-financeiro-barbearia",
+    icon: BarChart3,
+    topics: ["Fluxo de caixa", "Margem", "Metas semanais"],
+  },
 ];
 
 export function GuideGrid() {

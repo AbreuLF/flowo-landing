@@ -13,9 +13,10 @@ import Footer from "@/components/footer";
 import { Section } from "@/components/section";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { CTAContextual } from "@/components/cta-contextual";
+import { ProofResultsSection } from "@/components/proof-results-section";
 
 export const metadata: Metadata = {
-  title: "Sistema de Agendamento para Barbearia | Flowo",
+  title: "Sistema de Agendamento para Barbearia no WhatsApp | Flowo",
   description:
     "Organize horários, reduza faltas e automatize confirmações com o sistema de agendamento para barbearia da Flowo.",
 };
@@ -70,7 +71,7 @@ export default function SchedulingSystemPage() {
                 Solução para barbearias
               </div>
               <h1 className="mt-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
-                Sistema de Agendamento para Barbearia com foco em resultado
+                Sistema de agendamento para barbearia com WhatsApp e lembretes automáticos
               </h1>
               <p className="mt-4 max-w-3xl text-lg text-gray-600">
                 O Flowo ajuda sua barbearia a lotar a agenda sem sobrecarregar a
@@ -145,6 +146,19 @@ export default function SchedulingSystemPage() {
                 .
               </p>
             </div>
+
+            <ProofResultsSection />
+
+            <p className="mt-6 text-sm text-gray-600">
+              Em dúvida entre manter processo manual ou migrar? Compare em{" "}
+              <Link
+                href="/flowo-vs-agenda-manual"
+                className="font-semibold text-primary underline underline-offset-4"
+              >
+                Flowo vs agenda manual
+              </Link>
+              .
+            </p>
 
             <CTAContextual
               title="Transforme sua agenda em uma máquina de recorrência"

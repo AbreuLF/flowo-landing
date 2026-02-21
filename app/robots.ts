@@ -3,17 +3,32 @@ import { getSiteUrl } from "@/lib/site-url";
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = getSiteUrl();
+  const restrictedPaths = ["/api/", "/monitoring", "/_next/"];
 
   return {
     rules: [
       {
+        userAgent: [
+          "OAI-SearchBot",
+          "GPTBot",
+          "ChatGPT-User",
+          "ClaudeBot",
+          "CCBot",
+          "Google-Extended",
+          "PerplexityBot",
+        ],
+        allow: "/",
+        disallow: restrictedPaths,
+        crawlDelay: 2,
+      },
+      {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/monitoring", "/_next/"],
+        disallow: restrictedPaths,
       },
-      // Reduce expensive non-SEO crawling.
+      // Block known high-noise crawler that has low relevance for our distribution goals.
       {
-        userAgent: ["GPTBot", "CCBot", "Amazonbot", "Bytespider"],
+        userAgent: "Bytespider",
         disallow: "/",
       },
     ],

@@ -13,6 +13,7 @@ import {
   Users,
   Instagram,
   Clock,
+  MessageCircle,
 } from "lucide-react";
 import { DownloadGateModal } from "@/components/download-gate-modal";
 import { LeadCaptureModal } from "@/components/lead-capture-modal";
@@ -121,6 +122,118 @@ const downloadables = [
     downloadUrl: "/downloads/guia-fidelizacao-clientes.xlsx",
     resourceType: "spreadsheet" as const,
     tags: ["Marketing", "Clientes"],
+  },
+  // Lead magnets - Agendamento WhatsApp
+  {
+    id: "checklist-agendamento-whatsapp",
+    title: "Checklist de Agendamento no WhatsApp",
+    description:
+      "Checklist prático para configurar fluxo de agendamento e confirmação via WhatsApp.",
+    icon: MessageCircle,
+    iconColor: "text-blue-600",
+    iconBg: "bg-blue-50",
+    downloadUrl: "/downloads/lead-magnets/checklist-agendamento-whatsapp.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Agendamento WhatsApp"],
+  },
+  {
+    id: "script-confirmacao-whatsapp",
+    title: "Scripts de Confirmação no WhatsApp",
+    description:
+      "Mensagens prontas para confirmar horários, remarcar e recuperar no-show.",
+    icon: MessageCircle,
+    iconColor: "text-blue-600",
+    iconBg: "bg-blue-50",
+    downloadUrl: "/downloads/lead-magnets/script-confirmacao-whatsapp.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Agendamento WhatsApp"],
+  },
+  // Lead magnets - Ticket Médio
+  {
+    id: "planilha-combos-ticket",
+    title: "Planilha de Combos para Ticket Médio",
+    description:
+      "Modelo para montar combos e precificação para aumentar receita por atendimento.",
+    icon: DollarSign,
+    iconColor: "text-emerald-600",
+    iconBg: "bg-emerald-50",
+    downloadUrl: "/downloads/lead-magnets/planilha-combos-ticket-medio.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Ticket Médio"],
+  },
+  {
+    id: "calculadora-ticket",
+    title: "Calculadora de Ticket Médio",
+    description:
+      "Planilha simples para acompanhar ticket médio e evolução semanal.",
+    icon: FileSpreadsheet,
+    iconColor: "text-emerald-600",
+    iconBg: "bg-emerald-50",
+    downloadUrl: "/downloads/lead-magnets/calculadora-ticket-medio.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Ticket Médio"],
+  },
+  // Lead magnets - Fidelização
+  {
+    id: "checklist-fidelizacao-30",
+    title: "Checklist de Fidelização (30 dias)",
+    description:
+      "Plano de ações para aumentar retorno de clientes em 30 dias.",
+    icon: Users,
+    iconColor: "text-orange-600",
+    iconBg: "bg-orange-50",
+    downloadUrl: "/downloads/lead-magnets/checklist-fidelizacao-30-dias.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Fidelização"],
+  },
+  {
+    id: "roteiro-reativacao",
+    title: "Roteiro de Reativação de Clientes",
+    description:
+      "Mensagens segmentadas para recuperar clientes inativos pelo WhatsApp.",
+    icon: Users,
+    iconColor: "text-orange-600",
+    iconBg: "bg-orange-50",
+    downloadUrl: "/downloads/lead-magnets/roteiro-reativacao-clientes.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Fidelização"],
+  },
+  // Lead magnets - Financeiro
+  {
+    id: "fluxo-caixa-semanal",
+    title: "Fluxo de Caixa Semanal da Barbearia",
+    description:
+      "Modelo para acompanhar entradas, saídas e saldo semanal.",
+    icon: DollarSign,
+    iconColor: "text-purple-600",
+    iconBg: "bg-purple-50",
+    downloadUrl: "/downloads/lead-magnets/fluxo-caixa-semanal-barbearia.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Financeiro"],
+  },
+  {
+    id: "plano-metas-faturamento",
+    title: "Plano de Metas de Faturamento",
+    description:
+      "Template para desdobrar meta mensal em meta semanal e diária.",
+    icon: FileSpreadsheet,
+    iconColor: "text-purple-600",
+    iconBg: "bg-purple-50",
+    downloadUrl: "/downloads/lead-magnets/plano-metas-faturamento.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Financeiro"],
+  },
+  {
+    id: "roteiros-shorts-reels",
+    title: "Roteiros de Shorts e Reels (30 dias)",
+    description:
+      "8 roteiros prontos com hook, estrutura e CTA para transformar guias em vídeos curtos.",
+    icon: Calendar,
+    iconColor: "text-pink-600",
+    iconBg: "bg-pink-50",
+    downloadUrl: "/downloads/lead-magnets/roteiros-shorts-reels-30-dias.csv",
+    resourceType: "spreadsheet" as const,
+    tags: ["Lead Magnet", "Marketing"],
   },
 ];
 

@@ -84,6 +84,8 @@ const downloads = [
   },
 ];
 
+const TOTAL_GUIDES = 10;
+
 export default function ResourcesPage() {
   return (
     <>
@@ -124,7 +126,7 @@ export default function ResourcesPage() {
                     href="/recursos/guias"
                     className="text-sm text-primary hover:underline flex items-center gap-1"
                   >
-                    Ver todos (6) <ArrowRight className="w-4 h-4" />
+                    Ver todos ({TOTAL_GUIDES}) <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
 
@@ -156,6 +158,24 @@ export default function ResourcesPage() {
                       </div>
                     </Link>
                   ))}
+                </div>
+              </div>
+
+              {/* Shorts/Reels Section */}
+              <div className="mb-16 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <h2 className="text-2xl font-bold text-gray-900">
+                      Shorts e Reels prontos (30 dias)
+                    </h2>
+                    <p className="mt-1 text-gray-600">
+                      8 roteiros conectados às páginas de maior intenção
+                      comercial para gerar tráfego e leads.
+                    </p>
+                  </div>
+                  <Button variant="outline" asChild>
+                    <Link href="/recursos/videos">Ver roteiros de vídeo</Link>
+                  </Button>
                 </div>
               </div>
 

@@ -20,6 +20,9 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://flowo.com.br'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'Sistema de Agendamento para Barbearia | WhatsApp + IA - Flowo',
     template: '%s | Flowo',
@@ -27,6 +30,10 @@ export const metadata: Metadata = {
   description: "Software de agendamento via WhatsApp para barbearias. Reduza faltas, gerencie barbeiros e aumente faturamento. Teste grátis 14 dias sem cartão.",
   keywords: ['agendamento barbearia', 'sistema barbearia', 'whatsapp barbearia', 'agenda barbearia', 'gestão barbearia', 'software barbearia', 'lembrete agendamento', 'reduzir faltas barbearia'],
   openGraph: {
+    title: 'Flowo | Sistema de Agendamento para Barbearia via WhatsApp',
+    description:
+      'Automatize agendamento, confirmação e lembretes no WhatsApp para reduzir faltas e aumentar faturamento.',
+    url: 'https://flowo.com.br',
     type: 'website',
     locale: 'pt_BR',
     siteName: 'Flowo',
@@ -41,7 +48,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'Flowo | Sistema de Agendamento para Barbearia',
+    description:
+      'Agendamento no WhatsApp com IA, lembretes automáticos e PIX antecipado.',
     creator: '@flowoapp',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -83,6 +94,44 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Flowo',
+              url: 'https://flowo.com.br',
+              logo: 'https://flowo.com.br/flowo-logo.svg',
+              contactPoint: [
+                {
+                  '@type': 'ContactPoint',
+                  contactType: 'customer support',
+                  email: 'contato@flowo.com.br',
+                  availableLanguage: ['pt-BR'],
+                },
+              ],
+              sameAs: [],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Flowo',
+              url: 'https://flowo.com.br',
+              inLanguage: 'pt-BR',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://flowo.com.br/recursos/guias',
+                'query-input': 'required name=search_term_string',
+              },
+            }),
+          }}
+        />
       </head>
       <body className="font-sans">
         <ConsentInitializer />
@@ -96,4 +145,3 @@ export default function RootLayout({
     </html>
   )
 }
-

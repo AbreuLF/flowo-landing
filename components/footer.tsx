@@ -86,6 +86,24 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/flowo-vs-planilha"
+                  prefetch={false}
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
+                  Flowo vs Planilha
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/flowo-vs-agenda-manual"
+                  prefetch={false}
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
+                  Flowo vs Agenda Manual
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/casos-de-sucesso"
                   prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"

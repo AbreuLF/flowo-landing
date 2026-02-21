@@ -13,9 +13,10 @@ import Footer from "@/components/footer";
 import { Section } from "@/components/section";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { CTAContextual } from "@/components/cta-contextual";
+import { ProofResultsSection } from "@/components/proof-results-section";
 
 export const metadata: Metadata = {
-  title: "Agenda da Barbearia no WhatsApp | Flowo",
+  title: "Agenda de Barbearia no WhatsApp com IA | Flowo",
   description:
     "Automatize sua agenda da barbearia no WhatsApp com IA, confirmação de horário e gestão simples para toda a equipe.",
 };
@@ -64,7 +65,7 @@ export default function WhatsappAgendaPage() {
                 WhatsApp como canal principal
               </div>
               <h1 className="mt-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
-                Agenda da Barbearia no WhatsApp, sem confusão e sem retrabalho
+                Agenda de barbearia no WhatsApp com IA, sem confusão e sem retrabalho
               </h1>
               <p className="mt-4 max-w-3xl text-lg text-gray-600">
                 Com o Flowo, o cliente agenda e confirma pelo WhatsApp em poucos
@@ -133,6 +134,19 @@ export default function WhatsappAgendaPage() {
                 className="font-semibold text-primary underline underline-offset-4"
               >
                 guias práticos da Flowo
+              </Link>
+              .
+            </p>
+
+            <ProofResultsSection />
+
+            <p className="mt-6 text-sm text-gray-600">
+              Quer validar se já passou da fase de agenda manual? Veja{" "}
+              <Link
+                href="/flowo-vs-agenda-manual"
+                className="font-semibold text-primary underline underline-offset-4"
+              >
+                este comparativo objetivo
               </Link>
               .
             </p>

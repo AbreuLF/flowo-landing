@@ -13,9 +13,10 @@ import Footer from "@/components/footer";
 import { Section } from "@/components/section";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { CTAContextual } from "@/components/cta-contextual";
+import { ProofResultsSection } from "@/components/proof-results-section";
 
 export const metadata: Metadata = {
-  title: "Software para Barbearia com PIX Antecipado | Flowo",
+  title: "Software para Barbearia com PIX Antecipado e Sinal | Flowo",
   description:
     "Receba sinal via PIX antes do atendimento e reduza faltas com software para barbearia integrado ao WhatsApp.",
 };
@@ -70,7 +71,7 @@ export default function PixSoftwarePage() {
                 PIX antecipado para reduzir faltas
               </div>
               <h1 className="mt-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
-                Software para Barbearia com PIX: menos no-show, mais caixa previsível
+                Software para barbearia com PIX antecipado: menos no-show, mais caixa previsível
               </h1>
               <p className="mt-4 max-w-3xl text-lg text-gray-600">
                 No Flowo, você ativa cobrança antecipada por PIX para horários
@@ -134,6 +135,19 @@ export default function PixSoftwarePage() {
                 .
               </p>
             </div>
+
+            <ProofResultsSection />
+
+            <p className="mt-6 text-sm text-gray-600">
+              Se você controla financeiro no manual, compare em{" "}
+              <Link
+                href="/flowo-vs-planilha"
+                className="font-semibold text-primary underline underline-offset-4"
+              >
+                Flowo vs planilha
+              </Link>
+              .
+            </p>
 
             <CTAContextual
               title="Use PIX para proteger horários críticos sem complicar a operação"

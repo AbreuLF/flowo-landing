@@ -9,9 +9,12 @@ const ROUTES = [
   "/sistema-agendamento-barbearia",
   "/agenda-barbearia-whatsapp",
   "/software-barbearia-com-pix",
+  "/flowo-vs-planilha",
+  "/flowo-vs-agenda-manual",
   "/recursos",
   "/recursos/videos",
   "/recursos/materiais",
+  "/llms.txt",
   "/recursos/guias",
   "/recursos/guias/guia-definitivo-agendamento",
   "/recursos/guias/gerenciamento-equipe",
@@ -19,6 +22,10 @@ const ROUTES = [
   "/recursos/guias/pagamentos-pix",
   "/recursos/guias/relatorios-metricas",
   "/recursos/guias/configurando-whatsapp",
+  "/recursos/guias/aumentar-ticket-medio",
+  "/recursos/guias/escala-equipe",
+  "/recursos/guias/fidelizacao-clientes",
+  "/recursos/guias/controle-financeiro-barbearia",
   "/casos-de-sucesso",
   "/casos-de-sucesso/academia-corpo-em-forma",
   "/casos-de-sucesso/clinica-saude-total",
@@ -42,8 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             route === "/agenda-barbearia-whatsapp" ||
             route === "/software-barbearia-com-pix"
           ? 0.9
+          : route === "/flowo-vs-planilha" || route === "/flowo-vs-agenda-manual"
+            ? 0.85
           : route.startsWith("/recursos/guias/")
             ? 0.8
+            : route === "/llms.txt"
+              ? 0.6
             : 0.7,
   }));
 }
