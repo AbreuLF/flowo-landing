@@ -10,6 +10,7 @@ export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [company, setCompany] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
@@ -26,19 +27,21 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, company }),
       })
 
       if (!response.ok) {
-        throw new Error('Failed to submit form')
+        const data = await response.json().catch(() => ({ message: "" }))
+        throw new Error(data.message || 'Failed to submit form')
       }
 
       setSuccess(true)
       setName('')
       setEmail('')
       setMessage('')
-    } catch {
-      setError('An error occurred. Please try again.')
+      setCompany('')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -52,6 +55,16 @@ export default function ContactForm() {
           <p className="text-green-500 text-center">Sua mensagem foi enviada com sucesso!</p>
         ) : (
           <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4">
+            <input
+              type="text"
+              name="company"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
             <div>
               <Label htmlFor="name">Nome</Label>
               <Input id="name" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -74,4 +87,3 @@ export default function ContactForm() {
     </section>
   )
 }
-

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle, Check, Phone, Video, MoreVertical, ChevronLeft, Smile, Paperclip, Mic } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { LeadCaptureModal } from "./lead-capture-modal";
 import { Section } from "./section";
 
@@ -311,9 +312,11 @@ export default function Hero() {
                             {/* QR Code */}
                             <div className="p-3 bg-white flex justify-center">
                               <div className="w-24 h-24 bg-white p-1">
-                                <img
+                                <Image
                                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 29'%3E%3Crect width='29' height='29' fill='white'/%3E%3Cpath d='M0 0h7v7H0zM8 0h1v1H8zM10 0h3v1h-3zM14 0h1v2h-1zM16 0h2v1h-2zM19 0h3v1h-3zM22 0h7v7h-7zM1 1v5h5V1zM23 1v5h5V1zM2 2h3v3H2zM24 2h3v3h-3zM8 2h1v1H8zM10 2h1v2h-1zM12 2h1v1h-1zM15 2h1v1h-1zM17 2h1v1h-1zM19 2h2v1h-2zM8 4h2v1H8zM12 4h3v1h-3zM16 4h1v3h-1zM18 4h1v1h-1zM20 4h1v2h-1zM9 5h1v1H9zM11 5h1v1h-1zM14 5h1v2h-1zM17 5h1v1h-1zM8 6h1v1H8zM10 6h1v2h-1zM12 6h2v1h-2zM18 6h2v1h-2zM0 8h1v1H0zM2 8h1v1H2zM4 8h2v1H4zM8 8h1v1H8zM13 8h1v2h-1zM15 8h1v1h-1zM17 8h4v1h-4zM22 8h1v1h-1zM24 8h2v1h-2zM27 8h2v1h-2zM1 9h1v1H1zM3 9h3v1H3zM9 9h1v1H9zM11 9h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM21 9h1v1h-1zM23 9h1v1h-1zM28 9h1v1h-1zM0 10h1v2H0zM2 10h2v1H2zM5 10h1v1H5zM8 10h2v1H8zM12 10h1v1h-1zM17 10h2v1h-2zM20 10h1v2h-1zM22 10h2v1h-2zM25 10h1v1h-1zM27 10h1v1h-1zM1 11h1v1H1zM4 11h1v1H4zM6 11h2v1H6zM10 11h3v1h-3zM14 11h2v1h-2zM18 11h1v1h-1zM21 11h1v1h-1zM23 11h1v2h-1zM26 11h1v1h-1zM28 11h1v1h-1zM2 12h1v1H2zM5 12h1v1H5zM8 12h1v1H8zM11 12h1v1h-1zM13 12h1v1h-1zM15 12h2v1h-2zM18 12h2v1h-2zM24 12h2v1h-2zM27 12h2v1h-2zM0 13h2v1H0zM3 13h2v1H3zM6 13h3v1H6zM10 13h1v1h-1zM12 13h1v2h-1zM14 13h3v1h-3zM19 13h1v1h-1zM22 13h1v1h-1zM25 13h1v1h-1zM1 14h1v1H1zM4 14h1v1H4zM8 14h3v1H8zM13 14h1v1h-1zM17 14h1v1h-1zM20 14h2v1h-2zM23 14h1v1h-1zM26 14h1v1h-1zM28 14h1v1h-1zM0 15h1v1H0zM2 15h1v1H2zM5 15h2v1H5zM9 15h2v1H9zM14 15h2v1h-2zM18 15h1v1h-1zM21 15h1v1h-1zM24 15h1v1h-1zM27 15h1v1h-1zM1 16h1v1H1zM3 16h1v1H3zM6 16h1v1H6zM8 16h1v1H8zM10 16h3v1h-3zM15 16h1v1h-1zM19 16h1v1h-1zM22 16h2v1h-2zM25 16h3v1h-3zM0 17h2v1H0zM4 17h1v1H4zM7 17h1v1H7zM11 17h1v1h-1zM14 17h1v1h-1zM17 17h1v1h-1zM20 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM2 18h1v1H2zM5 18h1v1H5zM8 18h2v1H8zM12 18h2v1h-2zM16 18h1v1h-1zM18 18h2v1h-2zM21 18h1v1h-1zM24 18h2v1h-2zM1 19h1v1H1zM3 19h2v1H3zM6 19h1v2H6zM9 19h1v1H9zM11 19h1v1h-1zM14 19h1v1h-1zM17 19h1v1h-1zM19 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM27 19h2v1h-2zM0 20h1v1H0zM4 20h1v1H4zM8 20h1v1H8zM10 20h1v1h-1zM13 20h2v1h-2zM16 20h2v1h-2zM20 20h1v1h-1zM23 20h1v1h-1zM26 20h1v1h-1zM28 20h1v1h-1zM8 21h2v1H8zM11 21h1v1h-1zM14 21h1v1h-1zM18 21h1v1h-1zM21 21h1v1h-1zM24 21h2v1h-2zM0 22h7v7H0zM9 22h1v1H9zM12 22h2v1h-2zM15 22h2v1h-2zM19 22h1v1h-1zM22 22h1v1h-1zM25 22h1v1h-1zM27 22h1v1h-1zM1 23v5h5v-5zM8 23h1v1H8zM11 23h1v1h-1zM14 23h1v1h-1zM17 23h1v1h-1zM20 23h1v2h-1zM23 23h1v1h-1zM26 23h2v1h-2zM2 24h3v3H2zM9 24h2v1H9zM13 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM21 24h2v1h-2zM24 24h1v1h-1zM28 24h1v1h-1zM8 25h1v1H8zM11 25h1v1h-1zM14 25h1v1h-1zM17 25h1v1h-1zM22 25h1v2h-1zM25 25h1v1h-1zM27 25h1v1h-1zM9 26h1v1H9zM12 26h2v1h-2zM15 26h1v1h-1zM19 26h2v1h-2zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM8 27h2v1H8zM11 27h1v1h-1zM14 27h1v1h-1zM17 27h1v1h-1zM20 27h1v1h-1zM23 27h1v1h-1zM25 27h3v1h-3zM9 28h1v1H9zM12 28h1v1h-1zM16 28h2v1h-2zM21 28h1v1h-1zM24 28h1v1h-1zM27 28h1v1h-1z' fill='black'/%3E%3C/svg%3E"
                                   alt="QR Code PIX"
+                                  width={96}
+                                  height={96}
                                   className="w-full h-full"
                                 />
                               </div>

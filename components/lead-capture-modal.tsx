@@ -47,6 +47,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
+  const [company, setCompany] = useState("");
   const [countryCode, setCountryCode] = useState<FlagIconCode>("BR"); // Default to Brazil
   const [dialCode, setDialCode] = useState("+55"); // Default to Brazil dial code
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -81,6 +82,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
           name,
           email,
           whatsapp: `${dialCode}${whatsapp}`,
+          company,
         }),
       });
 
@@ -151,6 +153,7 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
     setName("");
     setEmail("");
     setWhatsapp("");
+    setCompany("");
     setCountryCode("BR");
     setDialCode("+55");
     setIsSuccess(false);
@@ -247,6 +250,16 @@ export function LeadCaptureModal({ children }: { children: React.ReactNode }) {
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  name="company"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 <div>
                   <Label htmlFor="name">Nome</Label>
                   <Input

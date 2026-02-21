@@ -54,6 +54,7 @@ export function DownloadGateModal({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
+  const [company, setCompany] = useState("");
   const [countryCode, setCountryCode] = useState<FlagIconCode>("BR");
   const [dialCode, setDialCode] = useState("+55");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -89,6 +90,7 @@ export function DownloadGateModal({
           email,
           whatsapp: `${dialCode}${whatsapp}`,
           source: `download:${resourceTitle}`,
+          company,
         }),
       });
 
@@ -164,6 +166,7 @@ export function DownloadGateModal({
     setName("");
     setEmail("");
     setWhatsapp("");
+    setCompany("");
     setCountryCode("BR");
     setDialCode("+55");
     setIsSuccess(false);
@@ -281,6 +284,16 @@ export function DownloadGateModal({
                   Preencha seus dados para baixar gratuitamente:
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <input
+                    type="text"
+                    name="company"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
                   <div>
                     <Label htmlFor="name">Nome</Label>
                     <Input

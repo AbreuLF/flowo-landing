@@ -33,6 +33,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/sobre"
+                  prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   Sobre Nós
@@ -41,6 +42,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/recursos"
+                  prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   Recursos
@@ -49,6 +51,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/precos"
+                  prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   Preços
@@ -57,6 +60,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/casos-de-sucesso"
+                  prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   Casos de Sucesso
@@ -65,6 +69,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/recursos/guias"
+                  prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   Guias
@@ -73,6 +78,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/recursos/materiais"
+                  prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   Materiais Gratuitos
@@ -131,12 +137,14 @@ export default function Footer() {
             <div className="flex space-x-6 text-sm">
               <Link
                 href="/privacidade"
+                prefetch={false}
                 className="text-gray-500 hover:text-primary transition-colors"
               >
                 Política de Privacidade
               </Link>
               <Link
                 href="/termos"
+                prefetch={false}
                 className="text-gray-500 hover:text-primary transition-colors"
               >
                 Termos de Uso

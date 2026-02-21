@@ -67,7 +67,7 @@ export function CookieBanner() {
               <div>
                 <p className="text-sm text-gray-700 leading-relaxed">
                   Usamos cookies para melhorar sua experiência.{" "}
-                  <Link href="/privacidade" className="text-primary hover:underline">
+                  <Link href="/privacidade" prefetch={false} className="text-primary hover:underline">
                     Saiba mais
                   </Link>
                 </p>

@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center">
+          <Link href="/" prefetch={false} className="flex items-center">
             <Image src="/flowo-logo.svg" alt="Flowo" width={120} height={30} />
           </Link>
 
@@ -31,6 +31,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   {item.name}
@@ -71,6 +72,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
+                prefetch={false}
                 className="block py-2 text-gray-600 hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
