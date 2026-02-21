@@ -59,6 +59,33 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/sistema-agendamento-barbearia"
+                  prefetch={false}
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
+                  Sistema de Agendamento
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/agenda-barbearia-whatsapp"
+                  prefetch={false}
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
+                  Agenda no WhatsApp
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/software-barbearia-com-pix"
+                  prefetch={false}
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
+                  Software com PIX
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/casos-de-sucesso"
                   prefetch={false}
                   className="text-gray-600 hover:text-primary transition-colors"

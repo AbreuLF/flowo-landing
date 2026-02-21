@@ -6,6 +6,9 @@ const LAST_MODIFIED = new Date("2026-02-21T00:00:00.000Z");
 const ROUTES = [
   "/",
   "/precos",
+  "/sistema-agendamento-barbearia",
+  "/agenda-barbearia-whatsapp",
+  "/software-barbearia-com-pix",
   "/recursos",
   "/recursos/videos",
   "/recursos/materiais",
@@ -32,6 +35,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}${route}`,
     lastModified: LAST_MODIFIED,
     changeFrequency: route === "/" ? "daily" : "weekly",
-    priority: route === "/" ? 1 : route.startsWith("/recursos/guias/") ? 0.8 : 0.7,
+    priority:
+      route === "/"
+        ? 1
+        : route === "/sistema-agendamento-barbearia" ||
+            route === "/agenda-barbearia-whatsapp" ||
+            route === "/software-barbearia-com-pix"
+          ? 0.9
+          : route.startsWith("/recursos/guias/")
+            ? 0.8
+            : 0.7,
   }));
 }
